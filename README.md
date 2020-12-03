@@ -25,3 +25,9 @@ Installation du projet :
 git clone https://github.com/Djioliat/comme-la-maison.git
 
 composer install 
+
+Base de donnée connection :
+
+1 : Dupliquer .env et renommer .en.local avec autentification avec mysql (DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7")
+2 : php bin/console doctrine:database:create
+3 : php bin/console make:migration
