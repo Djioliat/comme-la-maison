@@ -23,7 +23,7 @@ class Food
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=FoodType::class)
+     * @ORM\Column(type="text")
      */
     private $type;
 
@@ -33,9 +33,9 @@ class Food
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity=Pictures::class, cascade={"persist", "remove"})
+     * @ORM\Column(type="text")
      */
-    private $pictureId;
+    private $picture;
 
     /**
      * @ORM\Column(type="float")
@@ -65,12 +65,12 @@ class Food
         return $this;
     }
 
-    public function getType(): ?FoodType
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(?FoodType $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 
@@ -89,14 +89,14 @@ class Food
         return $this;
     }
 
-    public function getPictureId(): ?Pictures
+    public function getPicture(): ?string
     {
-        return $this->pictureId;
+        return $this->picture;
     }
 
-    public function setPictureId(?Pictures $pictureId): self
+    public function setPicture(string $picture): self
     {
-        $this->pictureId = $pictureId;
+        $this->picture = $picture;
 
         return $this;
     }

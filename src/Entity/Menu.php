@@ -35,11 +35,6 @@ class Menu
     private $whineId;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Pictures::class)
-     */
-    private $pictureId;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -54,9 +49,19 @@ class Menu
      */
     private $priceTakeway;
 
+    /**
+     * @ORM\Column(type="text", length=255)
+     */
+    private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pictureDescription;
+
     public function __construct()
     {
-        $this->foods = new ArrayCollection();
+        $this->foods =  new ArrayCollection();
         $this->whineId = new ArrayCollection();
     }
 
@@ -125,18 +130,6 @@ class Menu
         return $this;
     }
 
-    public function getPictureId(): ?Pictures
-    {
-        return $this->pictureId;
-    }
-
-    public function setPictureId(?Pictures $pictureId): self
-    {
-        $this->pictureId = $pictureId;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -169,6 +162,30 @@ class Menu
     public function setPriceTakeway(float $priceTakeway): self
     {
         $this->priceTakeway = $priceTakeway;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getPictureDescription(): ?string
+    {
+        return $this->pictureDescription;
+    }
+
+    public function setPictureDescription(string $pictureDescription): self
+    {
+        $this->pictureDescription = $pictureDescription;
 
         return $this;
     }

@@ -33,9 +33,9 @@ class Wine
     private $year;
 
     /**
-     * @ORM\OneToOne(targetEntity=Pictures::class, cascade={"persist", "remove"})
+     * @ORM\Column(type="text")
      */
-    private $pictureId;
+    private $pictureUrl;
 
     /**
      * @ORM\Column(type="boolean")
@@ -103,14 +103,14 @@ class Wine
         return $this;
     }
 
-    public function getPictureId(): ?Pictures
+    public function getPictureUrl(): ?string
     {
-        return $this->pictureId;
+        return $this->pictureUrl;
     }
 
-    public function setPictureId(?Pictures $pictureId): self
+    public function setPictureUrl(string $pictureUrl): self
     {
-        $this->pictureId = $pictureId;
+        $this->pictureUrl = $pictureUrl;
 
         return $this;
     }
