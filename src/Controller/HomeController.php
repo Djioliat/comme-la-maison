@@ -13,6 +13,12 @@ class HomeController extends AbstractController {
     public function home() {
         return $this->render('home.html.twig');
     }
+    /**
+     * @Route("/admin", name="adminpage")
+     */
+    public function admin() {
+        return $this->render('admin.html.twig');
+    }
 
 }
 

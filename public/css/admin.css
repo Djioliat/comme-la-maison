@@ -1,0 +1,48 @@
+/* ---------------------------- Import de police ---------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* --------------------------------- Header --------------------------------- */
+
+.navTitle {
+    font-family: 'Farsan';
+    font-size: 1.5em;
+}
+
+#mySidebar {
+    min-width: 200px;
+    max-width: 15%;
+    height: 100vh;
+}
+
+.reste {
+    margin-left: 15%;
+}
+
+.info {
+    margin-top: 15%;
+}
+
+.title {
+    font-family: 'Great Vibes';
+    font-size: 2em;
+    text-align: center;
+}
+
+.modalImg {
+    width: 60%;
+}
+.ajout{
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    #mySidebar {
+        min-width: 50vw;
+        max-width: 100%;
+        height: 90vh;
+    }
+    .modalImg {
+        width: 100%;
+    }
+}

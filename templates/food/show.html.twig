@@ -1,0 +1,15 @@
+{% block body %}
+    <div class="w3-card-4">
+        <div class="w3-display-container w3-center">
+            {# img_folder variable d'environement du dossier uploads pour les images #}
+            <img src="{{ img_folder }}/{{ food.picture }}" alt="Lights" style="width:100%">
+        </div>
+        <h3 class="title">{{food.name}}</h3>
+        <p class="w3-padding">{{ food.description }}
+        </p>
+    </div>
+    <div class="w3-display-container">
+        <p class="w3-display-right w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
+        <p class="w3-display-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
+    </div>
+{% endblock %}

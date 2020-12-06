@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Admin panel" name="description">
+    <title>{% block title %}Interface admin{% endblock %}</title>
+    <!-- Import de W3 CSS -->
+    <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+<!-- **********************************************************************************************************************************************************
+TOP BAR CONTENT
+*********************************************************************************************************************************************************** -->
+<!--header start-->
+<header class="w3-bar">
+    <button class="w3-bar-item w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+</header>
+<!--header end-->
+<!-- **********************************************************************************************************************************************************
+ SIDEBAR MENU
+*********************************************************************************************************************************************************** -->
+<!--sidebar start-->
+<aside class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-col" id="mySidebar">
+    <button class=" w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Fermer &times;</button>
+    <!-- sidebar menu start-->
+
+    {#    TODO Modifier les liens href #}
+    <a class="w3-bar-item w3-center" href="#">
+        <img class="w3-circle" src="{{ asset('img/logo2.png') }}" style="width:7rem;">
+        <h5 class="navTitle">Comme à la maison</h5>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href="#">
+        <span>Accueil</span>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
+        <span>Editer le plat du jour</span>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
+        <span>Editer les menus</span>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('food_index') }}">
+        <span>Editer les plats</span>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
+        <span>Editer les vins</span>
+    </a>
+    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
+        <span>Modifier les coordonnées</span>
+    </a>
+{#    TODO Modifier le lien href #}
+    <a class="w3-bar-item w3-button w3-padding-16 w3-deep-purple" href="#">
+            <span>
+                Se déconnecter
+            </span>
+    </a>
+</aside>
+<!--sidebar end-->
+
+<!-- **********************************************************************************************************************************************************
+MAIN CONTENT
+*********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section class="reste w3-main">
+    {% block body %}
+
+{% endblock %}
+</section>
+<script src="{{ asset('js/main.js') }}"> </script>
+{% block javascript %}{% endblock %}
+</body>
+
+</html>
