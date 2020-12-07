@@ -38,7 +38,7 @@ class FoodController extends AbstractController
 //            Récupérer l'image
             $image = $form->get('picture')->getData();
 //            Générer un nom de fichier unique
-            $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+            $fichier = $food->getName() . '.' . $image->guessExtension();
 //            Copie du fichier dans le dossier upload
             $image->move(
                 $this->getParameter('images_directory'),
@@ -46,6 +46,7 @@ class FoodController extends AbstractController
             );
 //            Stoker l'image en base de donnée via l'entité Food
             $food->setPicture($fichier);
+            $food->setImageDescription($food->getName());
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($food);
@@ -80,16 +81,22 @@ class FoodController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 //            Récupérer l'image
-            $image = $form->get('picture')->getData();
+            if ($form->get('picture')->getData() != null){
+                $image = $form->get('picture')->getData();
 //            Générer un nom de fichier unique
-            $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $fichier = $food->getName() . '.' . $image->guessExtension();
 //            Copie du fichier dans le dossier upload
-            $image->move(
-                $this->getParameter('images_directory'),
-                $fichier
-            );
-//            Stoker l'image en base de donnée via l'entité Food
-            $food->setPicture($fichier);
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $fichier
+                );
+                //            Stoker l'image en base de donnée via l'entité Food
+                $food->setPicture($fichier);
+            }else{
+                $food->setPicture($food->getPicture());
+            }
+
+
 
             $this->getDoctrine()->getManager()->flush();
 

@@ -27,7 +27,7 @@
         <div class="w3-card-4">
             <div class="w3-display-container w3-center">
                 {# img_folder variable d'environement du dossier uploads pour les images #}
-                <img src="{{ img_folder }}/{{ food.picture }}" alt="Lights" style="width:100%">
+                <img src="{{ img_folder }}/{{ food.picture }}" alt="{{ food.imageDescription }}" style="width:100%">
             </div>
             <h3 class="title">{{food.name}}</h3>
             <p class="w3-padding">{{ food.description }}
