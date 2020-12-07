@@ -48,6 +48,11 @@ class Food
 
     private $priceTakeway;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $imageDescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Food
     public function setPriceTakeway(?float $priceTakeway): self
     {
         $this->priceTakeway = $priceTakeway;
+
+        return $this;
+    }
+
+    public function getImageDescription(): ?string
+    {
+        return $this->imageDescription;
+    }
+
+    public function setImageDescription(string $imageDescription): self
+    {
+        $this->imageDescription = $imageDescription;
 
         return $this;
     }

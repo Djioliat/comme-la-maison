@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Editer les plats{% endblock %}
+
+{% block body %}
+    <section class="w3-container w3-center">
+        <h1>Editer les plats</h1>
+    </section>
+    <!-- ------------------------- Recherche des plats ------------------------- -->
+
+    <nav class="w3-bar w3-margin-bottom">
+        <a class="w3-btn w3-bar-item" style="width:25%">Entrée</a>
+        <a class="w3-btn w3-bar-item" style="width:25%">Plat</a>
+        <a class="w3-btn w3-bar-item" style="width:25%">Dessert</a>
+        <a class="w3-btn w3-bar-item" style="width:25%">Fromage</a>
+        <a class="w3-btn w3-bar-item" style="width:25%">Végétarien</a>
+        <input type="text" placeholder="Entrez un nom" class="w3-bar-item w3-light-grey w3-center w3-margin-left"
+               style="width:40%">
+        <a href="#" class="w3-bar-item w3-button" style="width:5%"><i class="fa fa-search"></i></a>
+        <a href="{{ path('food_new') }}" class="ajout w3-bouton w3-bar-item w3-red w3-center"
+           style="width:15%;">Ajouter</a>
+    </nav>
+    <!-- ------------------------ Section carte du plat ------------------------ -->
+<section class="w3-container">
+    {% for food in food %}
+    <section class="w3-container w3-quarter">
+        <div class="w3-card-4">
+            <div class="w3-display-container w3-center">
+                {# img_folder variable d'environement du dossier uploads pour les images #}
+                <img src="{{ img_folder }}/{{ food.picture }}" alt="{{ food.imageDescription }}" style="width:100%">
+            </div>
+            <h3 class="title">{{food.name}}</h3>
+            <p class="w3-padding">{{ food.description }}
+            </p>
+            <div class="w3-row">
+                <a href="{{ path('food_edit', {'id': food.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
+            </div>
+        </div>
+        <div class="w3-display-container">
+            <p class="w3-display-right w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
+            <p class="w3-display-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
+        </div>
+    </section>
+    {% else %}
+        <tr>
+            <td colspan="8">no records found</td>
+        </tr>
+    {% endfor %}
+</section>
+{% endblock %}

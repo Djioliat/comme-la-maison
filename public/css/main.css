@@ -1,0 +1,110 @@
+/* ---------------------------- Import de police ---------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* ----------------- borderbox pour les problemes de padding ---------------- */
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+/* --------------------- Section qui concerne le header --------------------- */
+
+header {
+    width: 100%;
+}
+
+.titlesite {
+    font-family: 'Farsan';
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+
+.linkMenu {
+    color: grey;
+}
+
+.introduction {
+    background-image: url(../img/deco.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+    min-height: 90vh;
+    margin-bottom: 2em;
+}
+
+/* ------------------------- Section "plat du jour" ------------------------- */
+
+.menu {
+    width: 100%;
+}
+
+.menu>p {
+    font-family: Helvetica;
+    font-size: 1.5.em;
+    margin: 1em;
+    text-align: center;
+}
+
+.title {
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Great Vibes';
+    font-size: 4em;
+    margin-top: 2em;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+
+.listmenu {
+    padding: 0.5em;
+}
+
+.listmenu>p {
+    text-align: center;
+    color: goldenrod;
+    font-family: 'Great Vibes';
+    font-size: 2em;
+}
+
+.listmenu>li {
+    color: black;
+    font-size: 1em;
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.menu {
+    margin-bottom: 1em;
+}
+
+.slides {
+    display: none
+}
+
+/* ----------------------------- Section contact ---------------------------- */
+
+label {
+    font-family: 'Great Vibes';
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.check {
+    color: black;
+    font-size: 1em;
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Great Vibes';
+    font-size: 3em;
+    text-align: center;
+}
