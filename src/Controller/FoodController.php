@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Controller;
-
 use App\Entity\Food;
 use App\Form\FoodType;
 use App\Repository\FoodRepository;
+use Intervention\Image\ImageManagerStatic;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,13 +37,25 @@ class FoodController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 //            Récupérer l'image
             $image = $form->get('picture')->getData();
-//            Générer un nom de fichier unique
+//            Générer un nom de fichier lié au plat
             $fichier = $food->getName() . '.' . $image->guessExtension();
+
 //            Copie du fichier dans le dossier upload
             $image->move(
                 $this->getParameter('images_directory'),
                 $fichier
             );
+//            Redimensionner l'image
+            $resizedImage = ImageManagerStatic::make($this->getParameter('images_directory') . $fichier);
+//            Fit centre et coupe l'image
+            $resizedImage->fit(750,560);
+//            resize déforme l'image aux proportions demandées
+//            $resizedImage->resize(750,560);
+            $resizedImage->response('jpg',100);
+//            Copie du fichier dans le dossier upload
+            $resizedImage->save($this->getParameter('images_directory') . $fichier);
+
+
 //            Stoker l'image en base de donnée via l'entité Food
             $food->setPicture($fichier);
             $food->setImageDescription($food->getName());
@@ -90,7 +102,15 @@ class FoodController extends AbstractController
                     $this->getParameter('images_directory'),
                     $fichier
                 );
-                //            Stoker l'image en base de donnée via l'entité Food
+//            Redimensionner l'image
+                $resizedImage = ImageManagerStatic::make($this->getParameter('images_directory') . $fichier);
+//            Fit centre et coupe l'image
+                $resizedImage->fit(750,560);
+//            resize déforme l'image aux proportions demandées
+//            $resizedImage->resize(750,560);                $resizedImage->response('jpg',100);
+//            Copie du fichier dans le dossier upload
+                $resizedImage->save($this->getParameter('images_directory') . $fichier);
+//            Stoker l'image en base de donnée via l'entité Food
                 $food->setPicture($fichier);
             }else{
                 $food->setPicture($food->getPicture());

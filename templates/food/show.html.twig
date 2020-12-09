@@ -5,11 +5,12 @@
             <img src="{{ img_folder }}/{{ food.picture }}" alt="{{ food.imageDescription }}" style="width:100%">
         </div>
         <h3 class="title">{{food.name}}</h3>
-        <p class="w3-padding">{{ food.description }}
+        <p class="description w3-padding">{{ food.description }}
         </p>
+        <div class="w3-row">
+            <p class="w3-half w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
+            <p class="w3-half-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
+        </div>
     </div>
-    <div class="w3-display-container">
-        <p class="w3-display-right w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
-        <p class="w3-display-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
-    </div>
+
 {% endblock %}
