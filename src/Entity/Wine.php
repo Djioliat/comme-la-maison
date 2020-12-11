@@ -33,9 +33,9 @@ class Wine
     private $year;
 
     /**
-     * @ORM\OneToOne(targetEntity=Pictures::class, cascade={"persist", "remove"})
+     * @ORM\Column(type="text")
      */
-    private $pictureId;
+    private $pictureUrl;
 
     /**
      * @ORM\Column(type="boolean")
@@ -61,6 +61,11 @@ class Wine
      * @ORM\Column(type="float")
      */
     private $priceTakeway;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $imageDescription;
 
     public function getId(): ?int
     {
@@ -103,14 +108,14 @@ class Wine
         return $this;
     }
 
-    public function getPictureId(): ?Pictures
+    public function getPictureUrl(): ?string
     {
-        return $this->pictureId;
+        return $this->pictureUrl;
     }
 
-    public function setPictureId(?Pictures $pictureId): self
+    public function setPictureUrl(string $pictureUrl): self
     {
-        $this->pictureId = $pictureId;
+        $this->pictureUrl = $pictureUrl;
 
         return $this;
     }
@@ -171,6 +176,18 @@ class Wine
     public function setPriceTakeway(float $priceTakeway): self
     {
         $this->priceTakeway = $priceTakeway;
+
+        return $this;
+    }
+
+    public function getImageDescription(): ?string
+    {
+        return $this->imageDescription;
+    }
+
+    public function setImageDescription(string $imageDescription): self
+    {
+        $this->imageDescription = $imageDescription;
 
         return $this;
     }
