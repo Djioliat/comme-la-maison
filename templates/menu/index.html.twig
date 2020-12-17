@@ -3,21 +3,22 @@
 {% block title %}Menus{% endblock %}
 
 {% block body %}
-{% include "navbar.html.twig" %}
 
-    {% for menu in menus %}
+{% include "navbar.html.twig" %}
+<div class="title-menus">
+	<h1>Comme à la maison</h1>
+	<h2>Les menus</h2>
+	<img class="title-img" src="{{ asset('img/cotelettes.jpg') }}"/>
+</div>
+    
+	{% for food in foods %}
         <div>
-            <h2>{{ menu.name }} </h2>
-            <p> {{ menu.description }} </p>     
+            <h2>{{ food.name }} </h2>
+            <p> {{ food.description }} </p>
+			<img src="{{ img_folder }}/{{ food.picture }}"/>     
         </div>
     {% else %}
         Pas de menu.
     {% endfor %}
     
-
-    
-        
-    
-    </div>
-</div>
 {% endblock %}
