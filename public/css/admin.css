@@ -35,6 +35,13 @@
 .ajout{
     text-align: center;
 }
+.recherche{
+    font-size: 0.9rem;
+}
+
+p{
+    font-size: 0.8em;
+}
 
 @media screen and (max-width: 900px) {
     #mySidebar {
