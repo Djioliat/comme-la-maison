@@ -5,20 +5,28 @@
 {% block body %}
 
 {% include "navbar.html.twig" %}
-<div class="title-menus">
-	<h1>Comme à la maison</h1>
-	<h2>Les menus</h2>
-	<img class="title-img" src="{{ asset('img/cotelettes.jpg') }}"/>
-</div>
-    
-	{% for food in foods %}
-        <div>
-            <h2>{{ food.name }} </h2>
-            <p> {{ food.description }} </p>
-			<img src="{{ img_folder }}/{{ food.picture }}"/>     
+{% for food in foods %}
+<section class="w3-container w3-quarter ">
+    <div class="w3-card-4 w3-margin">
+        <div class="w3-display-container w3-center">
+               {# img_folder variable d'environement du dossier uploads pour les images #}
+            <img src="{{ img_folder }}/{{ food.picture }}" alt="{{ food.imageDescription }}" style="width:100%">
         </div>
-    {% else %}
-        Pas de menu.
-    {% endfor %}
-    
+        <h3 class="title">{{food.name}}</h3>
+        <p class="w3-padding">{{ food.description }}
+        </p>
+        <div class="w3-row">
+            <p class="w3-half w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
+            <p class="w3-half-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
+        </div>
+        <div class="w3-row">
+            <a href="{{ path('food_edit', {'id': food.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
+        </div>
+    </div>
+</section>
+ {% else %}
+    <tr>
+        <td colspan="8">no records found</td>
+    </tr>  
+{% endfor %}  
 {% endblock %}
