@@ -3,8 +3,12 @@
 {% block title %}Menus{% endblock %}
 
 {% block body %}
-
 {% include "navbar.html.twig" %}
+
+<div class="title-foods">
+    <h1>Entrées</h1>
+</div>
+
 {% for food in foods %}
 <section class="w3-container w3-quarter ">
     <div class="w3-card-4 w3-margin">
@@ -18,9 +22,6 @@
         <div class="w3-row">
             <p class="w3-half w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
             <p class="w3-half-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
-        </div>
-        <div class="w3-row">
-            <a href="{{ path('food_edit', {'id': food.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
         </div>
     </div>
 </section>
