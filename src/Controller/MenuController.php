@@ -18,7 +18,7 @@ class MenuController extends AbstractController
              ->getRepository(Food::class)
              ->findAll();
 
-        return $this->render('menu/index.html.twig', [
+        return $this->render('menus/index.html.twig', [
             'foods' => $foods
         ]);
     }
