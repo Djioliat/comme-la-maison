@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wine index{% endblock %}
+
+{% block body %}
+    <h1>Wine index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NameCuvee</th>
+                <th>DomaineName</th>
+                <th>Year</th>
+                <th>PictureUrl</th>
+                <th>Bio</th>
+                <th>BioDynamic</th>
+                <th>Description</th>
+                <th>PriceRestaurant</th>
+                <th>PriceTakeway</th>
+                <th>ImageDescription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wine in wines %}
+            <tr>
+                <td>{{ wine.id }}</td>
+                <td>{{ wine.nameCuvee }}</td>
+                <td>{{ wine.domaineName }}</td>
+                <td>{{ wine.year }}</td>
+                <td>{{ wine.pictureUrl }}</td>
+                <td>{{ wine.bio ? 'Yes' : 'No' }}</td>
+                <td>{{ wine.bioDynamic ? 'Yes' : 'No' }}</td>
+                <td>{{ wine.description }}</td>
+                <td>{{ wine.priceRestaurant }}</td>
+                <td>{{ wine.priceTakeway }}</td>
+                <td>{{ wine.imageDescription }}</td>
+                <td>
+                    <a href="{{ path('wine_show', {'id': wine.id}) }}">show</a>
+                    <a href="{{ path('wine_edit', {'id': wine.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('wine_new') }}">Create new</a>
+{% endblock %}
