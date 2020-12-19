@@ -12,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/wine")
+ * @Route("admin/wine")
  */
-class WineController extends AbstractController
+class AdminWineController extends AbstractController
 {
     /**
      * @Route("/", name="wine_index", methods={"GET"})
