@@ -3,9 +3,17 @@
 {% block title %}Les vins{% endblock %}
 
 {% block body %}
-<div class="title-foods w3-center">
+<nav class="w3-bar w3-margin-bottom w3-center">
+        <input type="text" placeholder="Entrez un nom" class="w3-bar-item w3-light-grey w3-center w3-margin-left"
+               style="width:40%">
+        <a href="#" class="w3-bar-item w3-button" style="width:5%"><i class="fa fa-search"></i></a>
+        <a href="{{ path('wine_new') }}" class="recherche ajout w3-bouton w3-bar-item w3-red w3-center"
+           style="width:15%;">Ajout</a>
+    </nav>
+<div class="title-wine w3-center">
     <h1>Les vins</h1>
 </div>
+
 
 {% for wine in wines %}
     <section class="w3-container w3-quarter">
