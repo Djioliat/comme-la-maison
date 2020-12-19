@@ -6,6 +6,7 @@ use App\Entity\Wine;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class WineType extends AbstractType
 {
@@ -15,9 +16,11 @@ class WineType extends AbstractType
             ->add('nameCuvee')
             ->add('domaineName')
             ->add('year')
-            ->add('pictureUrl')
+            ->add('picture', FileType::class, [
+                'mapped' => false,
+                'required' => false
+            ])
             ->add('bio')
-            ->add('bioDynamic')
             ->add('description')
             ->add('priceRestaurant')
             ->add('priceTakeway')
