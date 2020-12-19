@@ -1,20 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Les vins{% endblock %}
 
 {% block body %}
-{% include "navbar.html.twig" %}
-
-<div class="title-foods w3-center">
+<nav class="w3-bar w3-margin-bottom w3-center">
+        <input type="text" placeholder="Entrez un nom" class="w3-bar-item w3-light-grey w3-center w3-margin-left"
+               style="width:40%">
+        <a href="#" class="w3-bar-item w3-button" style="width:5%"><i class="fa fa-search"></i></a>
+        <a href="{{ path('wine_new') }}" class="recherche ajout w3-bouton w3-bar-item w3-red w3-center"
+           style="width:15%;">Ajout</a>
+    </nav>
+<div class="title-wine w3-center">
     <h1>Les vins</h1>
 </div>
+
 
 {% for wine in wines %}
     <section class="w3-container w3-quarter">
         <div class="w3-card-4 w3-margin">
             <div class="w3-display-container w3-center">
                 {# img_folder variable d'environement du dossier uploads pour les images #}
-               <img src="{{ wine.picture }}" alt="{{ wine.imageDescription }}" style="width:100%">
+               <img src="{{ img_folder }}/{{ wine.picture }}" alt="{{ wine.imageDescription }}" style="width:100%">
             </div>
             <h3 class="title">{{wine.nameCuvee}}</h3>
             <h3 class="title">{{wine.domaineName}}</h3>
@@ -24,6 +30,10 @@
             <div class="w3-row">
                 <p class="w3-half w3-padding-small">Sur place : {{ wine.priceRestaurant }}€</p>
                 <p class="w3-half-left w3-padding-small">A emporter : {{ wine.priceTakeway }}€</p>
+            </div>
+            <div class="w3-row">
+                <a href="{{ path('wine_edit', {'id': wine.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
+                <a href="{{ path('wine_delete', {'id': wine.id}) }}" class="w3-button w3-deep-purple w3-half">Supprimer</a>
             </div>
         </div>
     </section>

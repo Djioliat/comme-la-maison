@@ -5,15 +5,16 @@ namespace App\Controller;
 use App\Entity\Wine;
 use App\Form\WineType;
 use App\Repository\WineRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Intervention\Image\ImageManagerStatic;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/wine")
+ * @Route("admin/wine")
  */
-class WineController extends AbstractController
+class AdminWineController extends AbstractController
 {
     /**
      * @Route("/", name="wine_index", methods={"GET"})
@@ -35,6 +36,29 @@ class WineController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //            Récupérer l'image
+            $image = $form->get('picture')->getData();
+//            Générer un nom de fichier lié au vin
+            $fichier = $wine->getNameCuvee() . '.' . $image->guessExtension();
+//            Copie du fichier dans le dossier upload
+            $image->move(
+                $this->getParameter('images_directory'),
+                $fichier
+            );
+//            Redimensionner l'image
+            $resizedImage = ImageManagerStatic::make($this->getParameter('images_directory') . $fichier);
+//            Fit centre et coupe l'image
+            $resizedImage->fit(750,560);
+//            resize déforme l'image aux proportions demandées
+//            $resizedImage->resize(750,560);
+            $resizedImage->response('jpg',100);
+//            Copie du fichier dans le dossier upload
+            $resizedImage->save($this->getParameter('images_directory') . $fichier);
+
+            $wine->setPicture($fichier);
+            $wine->setImageDescription($wine->getNameCuvee());
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($wine);
             $entityManager->flush();
@@ -84,6 +108,8 @@ class WineController extends AbstractController
     public function delete(Request $request, Wine $wine): Response
     {
         if ($this->isCsrfTokenValid('delete'.$wine->getId(), $request->request->get('_token'))) {
+//            Supprimer physiquement l'image du dossier upload
+            unlink($this->getParameter('images_directory').'/'.$wine->getPicture());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($wine);
             $entityManager->flush();
