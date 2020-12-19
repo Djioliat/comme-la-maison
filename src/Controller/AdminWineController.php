@@ -108,6 +108,8 @@ class AdminWineController extends AbstractController
     public function delete(Request $request, Wine $wine): Response
     {
         if ($this->isCsrfTokenValid('delete'.$wine->getId(), $request->request->get('_token'))) {
+//            Supprimer physiquement l'image du dossier upload
+            unlink($this->getParameter('images_directory').'/'.$wine->getPicture());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($wine);
             $entityManager->flush();
