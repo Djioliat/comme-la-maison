@@ -1,53 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wine index{% endblock %}
+{% block title %}Les vins{% endblock %}
 
 {% block body %}
-    <h1>Wine index</h1>
+{% include "navbar.html.twig" %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NameCuvee</th>
-                <th>DomaineName</th>
-                <th>Year</th>
-                <th>PictureUrl</th>
-                <th>Bio</th>
-                <th>BioDynamic</th>
-                <th>Description</th>
-                <th>PriceRestaurant</th>
-                <th>PriceTakeway</th>
-                <th>ImageDescription</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for wine in wines %}
-            <tr>
-                <td>{{ wine.id }}</td>
-                <td>{{ wine.nameCuvee }}</td>
-                <td>{{ wine.domaineName }}</td>
-                <td>{{ wine.year }}</td>
-                <td>{{ wine.pictureUrl }}</td>
-                <td>{{ wine.bio ? 'Yes' : 'No' }}</td>
-                <td>{{ wine.bioDynamic ? 'Yes' : 'No' }}</td>
-                <td>{{ wine.description }}</td>
-                <td>{{ wine.priceRestaurant }}</td>
-                <td>{{ wine.priceTakeway }}</td>
-                <td>{{ wine.imageDescription }}</td>
-                <td>
-                    <a href="{{ path('wine_show', {'id': wine.id}) }}">show</a>
-                    <a href="{{ path('wine_edit', {'id': wine.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="title-foods w3-center">
+    <h1>Les vins</h1>
+</div>
 
-    <a href="{{ path('wine_new') }}">Create new</a>
+{% for wine in wines %}
+    <section class="w3-container w3-quarter">
+        <div class="w3-card-4 w3-margin">
+            <div class="w3-display-container w3-center">
+                {# img_folder variable d'environement du dossier uploads pour les images #}
+               <img src="{{ wine.pictureUrl }}" alt="{{ wine.imageDescription }}" style="width:100%">
+            </div>
+            <h3 class="title">{{wine.nameCuvee}}</h3>
+            <h3 class="title">{{wine.domaineName}}</h3>
+            <p class="w3-padding">{{ wine.year }}
+            <p class="w3-padding">{{ wine.bio }}</p>
+            <p class="w3-padding">{{ wine.description }}</p>
+            <div class="w3-row">
+                <p class="w3-half w3-padding-small">Sur place : {{ wine.priceRestaurant }}€</p>
+                <p class="w3-half-left w3-padding-small">A emporter : {{ wine.priceTakeway }}€</p>
+            </div>
+        </div>
+    </section>
+ {% else %}
+    <tr>
+        <td colspan="8">no records found</td>
+    </tr>  
+{% endfor %}  
 {% endblock %}
