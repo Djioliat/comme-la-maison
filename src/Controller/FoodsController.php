@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MenuController extends AbstractController
+class FoodsController extends AbstractController
 {
     /**
-     * @Route("/menus", name="menu_index")
+     * @Route("/plats", name="food_index")
      */
     public function index(): Response
     {
@@ -18,7 +18,7 @@ class MenuController extends AbstractController
              ->getRepository(Food::class)
              ->findAll();
 
-        return $this->render('menus/index.html.twig', [
+        return $this->render('foods/index.html.twig', [
             'foods' => $foods
         ]);
     }
