@@ -9,7 +9,7 @@
     <!-- Import de W3 CSS -->
     <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
 </head>
 
 <body>
@@ -71,7 +71,7 @@ MAIN CONTENT
 {% endblock %}
 </section>
 <script src="{{ asset('js/main.js') }}"> </script>
-{% block javascript %}{% endblock %}
+ {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
 </body>
 
 </html>

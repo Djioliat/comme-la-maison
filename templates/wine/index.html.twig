@@ -33,7 +33,7 @@
             </div>
             <div class="w3-row">
                 <a href="{{ path('wine_edit', {'id': wine.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
-                <a href="{{ path('wine_delete', {'id': wine.id}) }}" class="w3-button w3-red w3-half">Supprimer</a>
+                {{  include ('wine/_delete_form.html.twig') }}
             </div>
         </div>
     </section>
