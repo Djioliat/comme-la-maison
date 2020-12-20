@@ -41,6 +41,11 @@
         ) }}
         {{ form_errors(form.year) }}
     </div>
+    <div>
+        {{ form_label(form.bio, 'Bio')}}
+        {{ form_widget(form.bio) }}
+        {{ form_errors(form.bio) }}
+    </div>
     <div class="w3-row">
         <div class="w3-half">
             <h3 class="title">
