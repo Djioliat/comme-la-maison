@@ -5,8 +5,65 @@
 {% endblock %}
 
 {% block body %}
-{% include "navbar.html.twig" %}
-    <h1>Bienvenue au restaurant Comme à la maison</h1>
-    <p>Bientot vous trouverais tous nos menus....</p>
-    <img src="https://media.giphy.com/media/l2JdTuayDxVZeGJDG/giphy.gif" alt="gif">
+    <!-- Header -->
+    <header id="fullwidth" style="background-color: darkslategray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Heading Title Area -->
+                    <div class="header-text white text-center">
+                        <h1>
+                            <img
+                                    src="{{ asset('img/logo2.png') }}"
+                                    width="300"
+                                    height="150"
+                                    class="img-responsive center-block"
+                                    alt="Comme à la maison"
+                            />
+                        </h1>
+                        <h4 class="text-uppercase white">
+                            "faites comme chez vous"
+                        </h4>
+                    </div>
+                    <!-- /.Heading Title Area -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+        <!-- Contact Info -->
+        <div class="info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="brd-left">
+                            <h3>Reservez</h3>
+                            <p class="lead">++44 785 522 322</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="brd-left">
+                            <h3>Envoyez nous un mail</h3>
+                            <p class="lead">comme@alamaison.com</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="brd-left brd-right">
+                            <h3>Restons connecter</h3>
+                            <p class="lead">
+                                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.Contact Info -->
+    </header>
+    <!-- /.Header -->
 {% endblock %}
