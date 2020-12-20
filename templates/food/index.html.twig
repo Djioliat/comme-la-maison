@@ -25,23 +25,13 @@
         {% for food in food %}
             <section class="w3-container w3-quarter ">
                 <div class="w3-card-4 w3-margin">
-                    <div class="w3-display-container w3-center">
-                        {# img_folder variable d'environement du dossier uploads pour les images #}
-                        <img src="{{ img_folder }}/{{ food.picture }}" alt="{{ food.imageDescription }}"
-                             style="width:100%">
-                    </div>
-                    <h3 class="title">{{ food.name }}</h3>
-                    <p class="w3-padding">{{ food.description }}
-                    </p>
-                    <div class="w3-row">
-                        <p class="w3-half w3-padding-small">Sur place : {{ food.priceRestaurant }}€</p>
-                        <p class="w3-half-left w3-padding-small">A emporter : {{ food.priceTakeway }}€</p>
-                    </div>
-                    <div class="w3-row">
-                        <a href="{{ path('food_edit', {'id': food.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
-                        {{ include('food/_delete_form.html.twig') }}
-                    </div>
-
+                    {{ include('food/show.html.twig') }}
+                </div>
+                <div class="w3-row">
+                    <a href="{{ path('food_edit', {'id': food.id}) }}"
+                       class="w3-button w3-deep-purple w3-half">Modifier</a>
+                    {{ include('food/_delete_form.html.twig') }}
+                </div>
                 </div>
             </section>
         {% else %}
