@@ -349,9 +349,9 @@ header#medium .header-text {
 /* ---------------------------
 3.3. Header Images
 -----------------------------*/
-/*.lacapelette-intro {*/
-/*    background-image: url(%kernel.project_dir%/public/);*/
-/*}*/
+.calm-intro {
+    background-image: url(../../img/background/deco.jpg);
+}
 /*.lacapelette-blog {*/
 /*    background-image: url(../img/backgrounds/lacapelette-blog.jpg);*/
 /*}*/
@@ -394,7 +394,7 @@ section p {
 section#about {padding:0}
 section#about {
     text-align: center;
-    background: url(../img/backgrounds/about-background.jpg);
+    background: url(../../img/background/about.jpeg);
     background-position: center bottom;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -422,42 +422,6 @@ section#specials {
     background: #f8f8f8
 }
 
-/* ---------------------------
-7. Bakery CTA /Home Page/
------------------------------*/
-section#bakery-cta {
-    text-align: center;
-    padding: 150px 0
-}
-section#bakery-cta {
-    background: url(../img/backgrounds/bakery-cta-background.jpg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-section#bakery-cta h2 {
-    font-size: 60px;
-    color: #FFFFFF
-}
-section#bakery-cta p {
-    font-size: 52px;
-    color: #FFFFFF
-}
-
-@media (max-width: 767px) {
-    section#bakery-cta {
-        padding: 50px 0
-    }
-    section#bakery-cta h2 {
-        font-size: 24px;
-    }
-    section#bakery-cta p {
-        font-size: 21px;
-    }
-}
 
 /* ---------------------------
 8. Restaurant Menu /Home Page/
@@ -752,46 +716,6 @@ section#foodblog .food-blog-item p {
     margin-top: 20px;
 }
 
-/* ---------------------------
-14. Newsletter
------------------------------*/
-section#newsletter {
-    padding: 50px 0;
-    background: #0a0909;
-    color: #FFF;
-    text-align: center
-}
-section#newsletter p {
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:uppercase;}
-
-section#newsletter h3 {
-    text-transform: uppercase;
-    margin-bottom: 20px
-}
-section#newsletter .form-control {
-    display: block;
-    width: 100%;
-    height: 36px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #FFF;
-    background-color: transparent;
-    background-image: none;
-    border: 2px solid #FFF;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
-}
-section#newsletter .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
-    z-index: 2;
-    margin-left: -2px;
-}
 
 /* ---------------------------
 15. Reservations
@@ -871,9 +795,6 @@ section#reservations .alert-success {
     border-color: #dea72d;
     color: #0a0909;
 }
-
-
-
 
 section#reservations textarea.form-control {
     height: 158px

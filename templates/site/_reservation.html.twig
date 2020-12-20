@@ -1,0 +1,111 @@
+<section id="reservations">
+    <div class="container">
+        <!-- Title Area -->
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <img
+                        src="{{ asset('img/icons/floral-divider-dark.png') }}"
+                        width="110"
+                        height="30"
+                        class="img-responsive center-block"
+                        alt="divider"
+                />
+                <h2>Réservation</h2>
+                <p class="lead mrgn-20-top">
+                    Pensez, dans la mesure du possible à nous contacter en avance. Même si travailler dans l'urgence
+                    peut avoir un certain charme, ceci peut nous éviter certaines déconvenues. Vous pouvez également
+                    nous contater par téléphone.
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- /.Title Area -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form -->
+                <form
+                        class="mrgn-30-top"
+                        name="sentMessage"
+                        id="contactForm"
+                        novalidate=""
+                >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">
+                                    <label class="sr-only">name</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Nom"
+                                            id="name"
+                                            required=""
+                                            data-validation-required-message="Veuillez entrer votre nom."
+                                    />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">
+                                    <label class="sr-only">email</label>
+                                    <input
+                                            type="email"
+                                            class="form-control"
+                                            placeholder="Adresse Email"
+                                            id="email"
+                                            required=""
+                                            data-validation-required-message="Veuillez entrer votre adresse email."
+                                    />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">
+                                    <label class="sr-only">phone</label>
+                                    <input
+                                            type="tel"
+                                            class="form-control"
+                                            placeholder="Téléphone"
+                                            id="phone"
+                                            required=""
+                                            data-validation-required-message="Veuillez entrer votre numéro de téléphone."
+                                    />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 controls">
+                                    <label class="sr-only">message</label>
+                                    <textarea
+                                            rows="5"
+                                            class="form-control"
+                                            placeholder="Message"
+                                            id="message"
+                                            required=""
+                                            data-validation-required-message="Please enter a message."
+                                    ></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn ghost-darkblue">
+                                Réserver
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- /.Form -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>

@@ -29,7 +29,7 @@ header {
 }
 
 .introduction {
-    background-image: url(../img/deco.jpg);
+    background-image: url(../img/background/deco.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
