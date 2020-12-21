@@ -5,8 +5,84 @@
 {% endblock %}
 
 {% block body %}
-{% include "navbar.html.twig" %}
-    <h1>Bienvenue au restaurant Comme à la maison</h1>
-    <p>Bientot vous trouverais tous nos menus....</p>
-    <img src="https://media.giphy.com/media/l2JdTuayDxVZeGJDG/giphy.gif" alt="gif">
+    <!-- Header -->
+    <header id="fullwidth" class="calm-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Heading Title Area -->
+                    <div class="header-text white text-center">
+                        <h1 class="display-1">
+                            Bienvenue
+                        </h1>
+                        <h1>
+                            à la maison
+                        </h1>
+                        <h4 class="text-uppercase white">
+                            "faites comme chez vous"
+                        </h4>
+                    </div>
+                    <!-- /.Heading Title Area -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+        <!-- Contact Info -->
+        <div class="info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="brd-left">
+                            <h3>Reservez</h3>
+                            <p class="lead">+33 2 45 47 78 01</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="brd-left">
+                            <h3>Envoyez nous un mail</h3>
+                            <p class="lead">comme@alamaison.com</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="brd-left brd-right">
+                            <h3>Restons connecter</h3>
+                            <p class="lead">
+                                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.Contact Info -->
+    </header>
+    <!-- /.Header -->
+
+    {{ include('site/_about.html.twig') }}
+
+
+    {{ include('site/_menu.html.twig') }}
+
+    <!-- Reservations Info Section -->
+    {{ include('site/_reservation.html.twig') }}
+    <!-- /.Reservations Info Section -->
+
+    <!-- Reservations Info Section FOOTER -->
+    {{ include('site/_footer.html.twig') }}
+
+    <!-- Top-link-block -->
+    <span id="top-link-block" class="hidden">
+      <a href="#top"
+              class="well well-sm">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+      </a>
+    </span>
+    <!-- /.Top-link-block -->
+
 {% endblock %}
