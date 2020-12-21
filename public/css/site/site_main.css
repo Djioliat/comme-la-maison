@@ -98,7 +98,7 @@ hr {
 
 @media(min-width:767px) {
     .navbar {
-        padding: 20px 0;
+        padding: 0px;
         -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
         transition: background .5s ease-in-out, padding .5s ease-in-out
@@ -427,7 +427,7 @@ section#specials {
 8. Restaurant Menu /Home Page/
 -----------------------------*/
 section#menu {
-    background: url(../img/backgrounds/menu-background.jpg);
+    background: url(../../img/background/about.jpeg);
     background-position: center bottom;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -442,7 +442,7 @@ section#menu h3 {
     padding-bottom: 5px
 }
 section#menu .menu-list {
-    margin: 0px 0 0px
+    margin: 0px 0 0px;
 }
 section#menu .menu-list-item {
     display: block;

@@ -12,15 +12,15 @@
                 <div class="col-md-12">
                     <!-- Heading Title Area -->
                     <div class="header-text white text-center">
-                        <h1 class="display-1">
-                            Bienvenue
-                        </h1>
                         <h1>
-                            à la maison
+                            <img
+                                    src="{{ asset('/img/icons/logo.png') }}"
+                                    width="300"
+                                    height="150"
+                                    class="img-responsive center-block img-rounded"
+                                    alt="Comme à la maison"
+                            />
                         </h1>
-                        <h4 class="text-uppercase white">
-                            "faites comme chez vous"
-                        </h4>
                     </div>
                     <!-- /.Heading Title Area -->
                 </div>
@@ -66,7 +66,6 @@
 
     {{ include('site/_about.html.twig') }}
 
-
     {{ include('site/_menu.html.twig') }}
 
     <!-- Reservations Info Section -->
@@ -76,13 +75,5 @@
     <!-- Reservations Info Section FOOTER -->
     {{ include('site/_footer.html.twig') }}
 
-    <!-- Top-link-block -->
-    <span id="top-link-block" class="hidden">
-      <a href="#top"
-              class="well well-sm">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-      </a>
-    </span>
-    <!-- /.Top-link-block -->
 
 {% endblock %}
