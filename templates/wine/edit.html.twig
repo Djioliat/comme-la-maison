@@ -3,7 +3,7 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ asset('css/wine-edit.css') }}">
-    <h1 class="title">Ajouter un vin</h1>
+    <h1 class="title mt-5">Ajouter un vin</h1>
     
         {{ include('wine/_form.html.twig', {'button_label': 'Update'}) }}
     <div class="button-edit">
@@ -11,7 +11,7 @@
         <form method="post" action="{{ path('wine_delete', {'id': wine.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ wine.id) }}">
-            <button class="w3-button w3-red w3-round-large">Supprimer</button>
+            
             <a class="w3-button w3-blue w3-round-large" href="{{ path('wine_index') }}">Retour à la liste</a>
         </form>
     </div>
