@@ -11,8 +11,6 @@ Donner de la visibilité au restaurant, réserver,  commander ses plats favoris.
 Contributeur :
 
 Magali Guignard (Campus manager WCS de Tours)
-Ahmad Safar (Développeur junior)
-Kevin Chalumeau (Développeur junior)
 Vincent Duguet (Développeur junior)
 Yves Piquet (Développeur junior)
 Louis Marquenet (Développeur junior)
