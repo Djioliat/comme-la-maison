@@ -1,6 +1,81 @@
-{{ form_start(form) }}
-<div class="container col-6">
-    {{ form_widget(form) }}
-    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
-</div>
-{{ form_end(form) }}
+<section class="w3-container w3-rest">
+    {{ form_start(form) }}
+
+    <div class="w3-row-padding">
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.nameCuvee, 'Nom du vin') }}
+            </h3>
+            {{ form_widget(form.nameCuvee,
+                {'attr':{'class':'w3-input w3-center'}}
+            ) }}
+            {{ form_errors(form.nameCuvee) }}
+        </div>
+        <div class="w3-half">
+            <div class="w3-row">
+                <h3 class="title">
+                    {{ form_label(form.domaineName, 'Nom du domaine') }}
+                </h3>
+                {{ form_widget(form.domaineName,
+                    {'attr':{'class':'w3-select w3-border'}}
+                ) }}
+                {{ form_errors(form.domaineName) }}
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <h3 class="title mt-3">
+            {{ form_label(form.description, 'Description du vin') }}
+        </h3>
+        {{ form_widget(form.description,
+            {'attr':{'class':'w3-input w3-margin'}}
+        ) }}
+        {{ form_errors(form.description) }}
+    </div>
+    <div class="row col-4">
+        <h3 class="title mt-3">
+            {{ form_label(form.year, 'Année du vin') }}
+        </h3>
+        {{ form_widget(form.year,
+            {'attr':{'class':'w3-input w3-margin'}}
+        ) }}
+        {{ form_errors(form.year) }}
+    </div>
+    <div>
+        {{ form_label(form.bio, 'Bio')}}
+        {{ form_widget(form.bio) }}
+        {{ form_errors(form.bio) }}
+    </div>
+    <div class="w3-row">
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.priceRestaurant, 'Prix sur place') }}
+            </h3>
+            {{ form_widget(form.priceRestaurant,
+                {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
+            ) }}
+            {{ form_errors(form.priceRestaurant) }}
+        </div>
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.priceTakeway, 'Prix à emporter') }}
+            </h3>
+            {{ form_widget(form.priceTakeway,
+                {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
+            ) }}
+            {{ form_errors(form.priceTakeway) }}
+        </div>
+    </div>
+    <div class="row col-4">
+        <h3 class="title mt-3">
+            {{ form_label(form.picture, 'Importez une image') }}
+        </h3>
+        {{ form_widget(form.picture,
+            {'attr':{'class':'w3-input w3-center w3-border'}}
+        ) }}
+        {{ form_errors(form.picture) }}
+    </div>
+    <button class="w3-button w3-green w3-round-large w3-margin">Enregistrer</button>
+    {{ form_end(form) }}
+</section>
+

@@ -1,11 +1,11 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}New Wine{% endblock %}
+{% block title %}Ajouter un vin{% endblock %}
 
 {% block body %}
-    <h1>Create new Wine</h1>
+    <h1 class="title mt-5">Ajouter un vin</h1>
 
     {{ include('wine/_form.html.twig') }}
 
-    <a href="{{ path('wine_index') }}">back to list</a>
+    <a class="w3-button w3-blue w3-round-large w3-margin" href="{{ path('wine_index') }}">Retour à la liste</a>
 {% endblock %}

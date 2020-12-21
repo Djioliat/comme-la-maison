@@ -5,15 +5,11 @@
 {% block body %}
 <link rel="stylesheet" href="{{ asset('css/wine.css') }}">
 <section class="w3-container w3-center">
-        <h1>Editer les Vins</h1>
+        <h2 class="title mt-5">Editer les Vins</h1>
     </section>
-    <nav class="nav-win w3-bar w3-row w3-margin-bottom">
-        <a href="{{ path('wine_new') }}" class="nav-wine-a w3-bar-item w3-blue w3-round-large w3-hover-gray">Ajouter un vin</a>
-    </nav>
-    <div class="title-wine w3-center">
-        <h1>Les vins</h1>
+    <div class="w3-container w3-center mt-2 mb-5">
+        <a href="{{ path('wine_new') }}" class="w3-button w3-blue w3-round-large w3-hover-gray">Ajouter un vin</a>
     </div>
-
 
 {% for wine in wines %}
     <section class="w3-container w3-quarter">
