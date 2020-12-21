@@ -110,10 +110,13 @@ class AdminWineController extends AbstractController
             $resizedImage->save($this->getParameter('images_directory') . $fichier);
 
             $wine->setPicture($fichier);
-            
             $wine->setImageDescription($wine->getNameCuvee());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($wine);
+            $entityManager->flush();
             
-            $this->getDoctrine()->getManager()->flush();
+            
 
             return $this->redirectToRoute('wine_index');
         }
