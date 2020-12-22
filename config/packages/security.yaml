@@ -1,45 +1,45 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-#    Encoder pour la classe user (mot de passe)
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  #    Encoder pour la classe user (mot de passe)
+  encoders:
+    App\Entity\User:
+      algorithm: bcrypt
 
-    providers:
-        users_in_memory: { memory: null }
-#        On attache l'authentification à un utilisateur en base de donnée par le champ email
-        in_database:
-            entity:
-                class: App\Entity\User
-                property: email
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|uploads|js)/
-            security: false
-        main:
-            anonymous: true
-            lazy: true
+  providers:
+    users_in_memory: { memory: null }
+    #        On attache l'authentification à un utilisateur en base de donnée par le champ email
+    in_database:
+      entity:
+        class: App\Entity\User
+        property: email
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|uploads|js)/
+      security: false
+    main:
+      anonymous: true
+      lazy: true
 
-            provider: in_database
+      provider: in_database
 
-#           Authentification par formulaire via la route security_login (SecurityController)
-            form_login:
-                login_path: security_login
-                check_path: security_login
-#           Idem pour le logout
-            logout:
-                path: security_logout
-                target: homepage
+      #           Authentification par formulaire via la route security_login (SecurityController)
+      form_login:
+        login_path: security_login
+        check_path: security_login
+      #           Idem pour le logout
+      logout:
+        path: security_logout
+        target: homepage
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
+      # activate different ways to authenticate
+      # https://symfony.com/doc/current/security.html#firewalls-authentication
 
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+      # https://symfony.com/doc/current/security/impersonating_user.html
+      # switch_user: true
 
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-#        On protège toutes les routes avec "/admin"
-         - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    #        On protège toutes les routes avec "/admin"
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    # - { path: ^/profile, roles: ROLE_USER }

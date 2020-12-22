@@ -16,8 +16,7 @@ class RegistrationType extends AbstractType
             ->add('userName')
             ->add('email')
             ->add('password', PasswordType::class)
-            ->add('confirmPassword', PasswordType::class)
-        ;
+            ->add('confirmPassword', PasswordType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -29,7 +29,7 @@ TOP BAR CONTENT
     <button class=" w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Fermer &times;</button>
     <!-- sidebar menu start-->
 
-    {#    TODO Modifier les liens href #}
+    {# TODO Modifier les liens href #}
     <a class="w3-bar-item w3-center" href="{{ path('homepage') }}">
         <img class="w3-circle" src="{{ asset('img/logo2.png') }}" style="width:7rem;">
         <h5 class="navTitle">Comme à la maison</h5>
@@ -65,12 +65,12 @@ MAIN CONTENT
 *********************************************************************************************************************************************************** -->
 <!--main content start-->
 <section class="reste w3-main">
-{% block body %}
+    {% block body %}
 
-{% endblock %}
+    {% endblock %}
 </section>
-<script src="{{ asset('js/main.js') }}"> </script>
- {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+<script src="{{ asset('js/main.js') }}"></script>
+{% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
 </body>
 
 </html>
