@@ -4,11 +4,18 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     message="Email déjà utilisé"
+ * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -24,11 +31,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="6", minMessage="Il faut au moins 6 charactères")
      */
     private $password;
 
@@ -36,6 +45,11 @@ class User
      * @ORM\Column(type="string", length=30)
      */
     private $role;
+
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Votre mot de passe doit être identique")
+     */
+    private $confirmPassword;
 
     public function getId(): ?int
     {
@@ -88,5 +102,31 @@ class User
         $this->role = $role;
 
         return $this;
+    }
+
+    public function getConfirmPassword()
+    {
+        return $this->confirmPassword;
+    }
+
+    public function setConfirmPassword($confirmPassword): void
+    {
+        $this->confirmPassword = $confirmPassword;
+    }
+
+
+    public function getRoles()
+    {
+        return ['ROLE_ADMIN'];
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }
