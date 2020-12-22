@@ -1,26 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos menus{% endblock %}
+{% block title %}Menu index{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Tous nos menus</h1>
-    
+    <h1>Menu index</h1>
 
-    {% for menu in menus %}
-        <div>
-            <h2>{{ menu.name }} </h2>
-            <p> {{ menu.description }} </p>
-            <img src="{{ menu.picture }}">
-        </div>
-    {% else %}
-        Pas de menu.
-    {% endfor %}
-    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>PriceRestaurant</th>
+                <th>PriceTakeway</th>
+                <th>Picture</th>
+                <th>PictureDescription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td>{{ menu.id }}</td>
+                <td>{{ menu.name }}</td>
+                <td>{{ menu.description }}</td>
+                <td>{{ menu.priceRestaurant }}</td>
+                <td>{{ menu.priceTakeway }}</td>
+                <td>{{ menu.picture }}</td>
+                <td>{{ menu.pictureDescription }}</td>
+                <td>
+                    <a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
+                    <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    
-        
-    
-    </div>
-</div>
+    <a href="{{ path('menu_new') }}">Create new</a>
 {% endblock %}

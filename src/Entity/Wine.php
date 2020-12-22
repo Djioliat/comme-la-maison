@@ -33,19 +33,14 @@ class Wine
     private $year;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $pictureUrl;
+    private $picture;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $bio;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $bioDynamic;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -108,14 +103,14 @@ class Wine
         return $this;
     }
 
-    public function getPictureUrl(): ?string
+    public function getPicture(): ?string
     {
-        return $this->pictureUrl;
+        return $this->picture;
     }
 
-    public function setPictureUrl(string $pictureUrl): self
+    public function setPicture(string $picture): self
     {
-        $this->pictureUrl = $pictureUrl;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -128,18 +123,6 @@ class Wine
     public function setBio(bool $bio): self
     {
         $this->bio = $bio;
-
-        return $this;
-    }
-
-    public function getBioDynamic(): ?bool
-    {
-        return $this->bioDynamic;
-    }
-
-    public function setBioDynamic(bool $bioDynamic): self
-    {
-        $this->bioDynamic = $bioDynamic;
 
         return $this;
     }

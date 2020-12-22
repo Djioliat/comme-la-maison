@@ -1,4 +1,66 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<section class="w3-container w3-rest">
+    {{ form_start(form) }}
+
+    <div class="w3-row-padding">
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.name, 'Nom du plat') }}
+            </h3>
+            {{ form_widget(form.name,
+                {'attr':{'class':'w3-input w3-center'}}
+            ) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div class="w3-half">
+            <div class="w3-row">
+                <h3 class="title">
+                    {{ form_label(form.type, 'Choix du type de plat') }}
+                </h3>
+                {{ form_widget(form.type,
+                    {'attr':{'class':'w3-select w3-border'}}
+                ) }}
+                {{ form_errors(form.type) }}
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <h3 class="title">
+            {{ form_label(form.description, 'Description du plat') }}
+        </h3>
+        {{ form_widget(form.description,
+            {'attr':{'class':'w3-input w3-margin'}}
+        ) }}
+        {{ form_errors(form.description) }}
+    </div>
+    <div class="w3-row">
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.priceRestaurant, 'Prix sur place') }}
+            </h3>
+            {{ form_widget(form.priceRestaurant,
+                {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
+            ) }}
+            {{ form_errors(form.priceRestaurant) }}
+        </div>
+        <div class="w3-half">
+            <h3 class="title">
+                {{ form_label(form.priceTakeway, 'Prix à emporter') }}
+            </h3>
+            {{ form_widget(form.priceTakeway,
+                {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
+            ) }}
+            {{ form_errors(form.priceTakeway) }}
+        </div>
+    </div>
+    <div class="row">
+        <h3 class="title">
+            {{ form_label(form.picture, 'Importez une image') }}
+        </h3>
+        {{ form_widget(form.picture,
+            {'attr':{'class':'w3-input w3-center w3-border'}}
+        ) }}
+        {{ form_errors(form.picture) }}
+    </div>
+    <button class="w3-button w3-deep-purple w3-margin">Enregistrer</button>
+    {{ form_end(form) }}
+</section>

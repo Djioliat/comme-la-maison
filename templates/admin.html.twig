@@ -9,7 +9,7 @@
     <!-- Import de W3 CSS -->
     <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
 </head>
 
 <body>
@@ -46,7 +46,7 @@ TOP BAR CONTENT
     <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('food_index') }}">
         <span>Editer les plats</span>
     </a>
-    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
+    <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('wine_index') }}">
         <span>Editer les vins</span>
     </a>
     <a class="w3-bar-item w3-button w3-padding-16" href=".#">
@@ -66,12 +66,12 @@ MAIN CONTENT
 *********************************************************************************************************************************************************** -->
 <!--main content start-->
 <section class="reste w3-main">
-    {% block body %}
+{% block body %}
 
 {% endblock %}
 </section>
 <script src="{{ asset('js/main.js') }}"> </script>
-{% block javascript %}{% endblock %}
+ {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
 </body>
 
 </html>

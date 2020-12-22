@@ -7,5 +7,8 @@
 
     {{ include('food/_form.html.twig') }}
 
-    <a href="{{ path('food_index') }}">back to list</a>
+    <section class="w3-container w3-center">
+        <a class="w3-button w3-border w3-hover-light-gray w3-xlarge w3-margin-bottom" href="{{ path('food_index') }}">Retour
+            à la liste</a>
+    </section>
 {% endblock %}

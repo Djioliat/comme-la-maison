@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr" class="wf-fontawesome-n4-active wf-active">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+{#    Bootstrap#}
+    <link rel="stylesheet" href="{{ asset('css/site/site_bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/site_main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/site_gallery.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/site_police.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/site_police2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/filtre_menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/site_map.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site/font_awsome.css') }}">
+    <!-- SCRIPT -->
+    <script src="{{ asset('js/site/webfontloeader.js') }}"></script>
+
+    <title>{% block title %}Comme à la maison !{% endblock %}</title>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Fixed navbar -->
+<nav
+        id="main-nav"
+        class="navbar navbar-default navbar-fixed-top affix-top"
+        data-spy="affix"
+        data-offset-top="100"
+        style="background-color: #0a0909"
+>
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button
+                    type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar"
+            >
+                <span class="sr-only">Comme à la maison</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="{{ '/' }}">
+                <p>Comme à la maison</p>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav nav-justified">
+                <li class="hidden active">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">A propos</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#menu">Menu</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#wines">Nos vins</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#recipes">Nos plats</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#reservations">Reservations</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<!-- /.Fixed navbar -->
+<!-- Header -->
+{% block body %}{% endblock %}
+{% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+<script src="{{ asset('js/site/jQuery.js') }}"  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/site/boostrap.min.js') }}"></script>
+<script src="{{ asset('js/site/jQuery_functions.js') }}"></script>
+<script src="{{ asset('js/site/jQuery_easy.js') }}"></script>
+<script src="{{ asset('js/site/isotope.pack.js') }}"></script>
+<script src="{{ asset('js/site/jQuery.magnific-popup.js') }}"></script>
+<script src="{{ asset('js/site/window.js') }}"></script>
+</body>
 </html>
