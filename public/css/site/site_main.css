@@ -13,14 +13,10 @@ CSS INDEX
 4. Global Styles for Sections
 5. About the Restaurant /Home Page/
 6. Specials /Home Page/
-7. Bakery CTA /Home Page/
 8. Restaurant Menu /Home Page/
 9. Wine Selection /Home Page/
 10. Recipes /Home Page/
-11. Good Food CTA /Home Page/
 12. Events /Home Page/
-13. Food Blog /Home Page/
-14. Newsletter
 15. Reservations
 16. Menu Page
 	16.1. Starters
@@ -427,9 +423,9 @@ section#specials {
 8. Restaurant Menu /Home Page/
 -----------------------------*/
 section#menu {
-    background: url(../../img/background/about.jpeg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
+    /*background: url(../../img/background/about.jpeg);*/
+    /*background-position: center bottom;*/
+    /*background-repeat: no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -484,20 +480,26 @@ section#menu .dashed-line {
 -----------------------------*/
 section#wines {padding:0}
 section#wines {
-    color: #FFF;
+    color: #090808;
 }
 section#wines h2 {
     color: #dea72d;
 }
 section#wines {
-    text-align: center;
-    background: url(../../img/background/about.jpeg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
+    /*background: url(../../img/background/about.jpeg);*/
+    /*background-position: center bottom;*/
+    /*background-repeat: no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    text-align: center;
+}
+section#wines .recipe-item {
+    margin: 15px 0;
+}
+section#wines .recipe-item figure {
+    margin: 0 0 25px;
 }
 section#wines .wine-item {
     background: rgba(10,9,9,1);
@@ -513,31 +515,34 @@ section#wines .wine-inner-box {
 }
 
 /* ---------------------------
-10. Recipes /Home Page/
+10. foods /Home Page/
 -----------------------------*/
-section#recipes {
-    background: url(../../img/background/about.jpeg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
+section#foods {
+    /*background: url(../../img/background/about.jpeg);*/
+    /*background-position: center bottom;*/
+    /*background-repeat: no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     text-align: center;
 }
-section#recipes .recipe-item {
+section#foods .recipe-item {
     margin: 15px 0;
 }
-section#recipes .recipe-item figure {
+section#foods .recipe-item figure {
     margin: 0 0 25px;
 }
-section#recipes .recipe-item img {
+section#foods .recipe-item img {
     -webkit-filter: sepia(0.2);
     -moz-filter: sepia(0.2);
     -o-filter: sepia(0.2);
     filter: sepia(0.2)
 }
-section#recipes h3.recipe-name {
+section#foods h2 {
+    color: #dea72d;
+}
+section#foods h3.recipe-name {
     font-size: 18px;
     margin-top: 20px;
     font-weight: 700;
@@ -651,39 +656,6 @@ figure.recipe:hover:before, figure.recipe.hover:before, figure.recipe:hover:afte
     transform: scale(1);
 }
 
-/* ---------------------------
-11. Good Food CTA /Home Page/
------------------------------*/
-section#goodfood-cta {
-    text-align: center;
-    padding: 150px 0;
-}
-section#goodfood-cta {
-    background: url(../../img/background/about.jpeg);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-section#goodfood-cta h3 {
-    font-size: 32px;
-    color: #FFFFFF;
-}
-section#goodfood-cta p {
-    font-size: 52px;
-    color: #FFFFFF;
-}
-
-@media (max-width: 767px) {
-    section#goodfood-cta {
-        padding: 50px 0;
-    }
-    section#goodfood-cta p {
-        font-size: 24px;
-    }
-}
 
 /* ---------------------------
 12. Events /Home Page/
@@ -694,25 +666,6 @@ section#events {
 }
 section#events p {
     margin-top: 30px;
-}
-
-/* ---------------------------
-13. Food Blog /Home Page/
------------------------------*/
-section#foodblog {
-    background: #f2eee8;
-}
-section#foodblog .food-blog-item {
-    margin: 40px 0;
-}
-section#foodblog .food-blog-item h2 {
-    text-transform: uppercase;
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-section#foodblog .food-blog-item p {
-    margin-top: 20px;
 }
 
 
