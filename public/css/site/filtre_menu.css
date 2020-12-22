@@ -41,23 +41,23 @@ Menu Styles for the filter & items
 }
 #menu ul#menu-filter-list a.selected, #menu ul#menu-filter-list a.selected:hover {
     border-left: 2px solid #ddb355;
-    color: #1d1d20
+    color: #1d1d20;
 }
 #menu ul#menu-filter-list li a:hover {
     border-left: 2px solid #ddb355;
-    color: #1d1d20
+    color: #1d1d20;
 }
 #menu .single-item {
     display: block;
     width: 100%;
     padding: 8px;
     float: left;
-    position: relative
+    position: relative;
 }
 #menu .single-item a {
     display: block;
     -webkit-transition: none!important;
-    transition: none!important
+    transition: none!important;
 }
 
 /*********
@@ -113,17 +113,17 @@ Smallest Tablet & Mobile
         outline: none;
         text-transform: uppercase;
         -webkit-transition: all .3s;
-        transition: all .3s
+        transition: all .3s;
     }
     #menu ul#menu-filter-list a.selected, #menu ul#menu-filter-list a.selected:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
     #menu ul#menu-filter-list li a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
 }
 
@@ -144,7 +144,7 @@ Small Mobile
     #menu .menu-filter li {
         list-style: none;
         display: inline-block;
-        margin: 3px
+        margin: 3px;
     }
     #menu .menu-filter li a {
         border-bottom: 2px solid transparent;
@@ -153,29 +153,29 @@ Small Mobile
     #menu .menu-filter li.active a, #menu .menu-filter li.active a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
     #menu .menu-filter li a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
 }
 /* ---------------------------
 Menu Items Styles for Filtered Menus
 -----------------------------*/
 section#menu {
-    background: #f8f8f8
+    background: #f8f8f8;
 }
 section#menu .menu-box {
     margin-bottom: 20px;
     border-bottom: 1px solid #0a0909;
-    padding-bottom: 20px
+    padding-bottom: 20px;
 }
 section#menu .menu-box:last-child {
     margin-bottom: 10px;
     border-bottom: 1px solid #0a0909;
-    padding-bottom: 20px
+    padding-bottom: 20px;
 }
 section#menu .menu-box .menu-list-item {
     display: block;
@@ -191,7 +191,7 @@ section#menu .menu-list-item h5 {
     max-width: 80%;
     padding-right: 5px;
     margin-bottom: 5px;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 section#menu .menu-box .menu-list-item p.price {
     color: #c39b41;
@@ -209,11 +209,11 @@ section#menu .menu-box .dashed-line {
     border-bottom: 1px dashed #0a0909;
     height: 30px;
     overflow: hidden;
-    display: block
+    display: block;
 }
 section#menu p.dish-description {
     clear: both;
-    line-height: 28px
+    line-height: 28px;
 }
 /*********
 Specials Styles for the filter & items
@@ -254,30 +254,30 @@ Specials Styles for the filter & items
     outline: none;
     text-transform: uppercase;
     -webkit-transition: all .3s;
-    transition: all .3s
+    transition: all .3s;
 }
 #specials2 ul#specials-filter-list a.selected, #specials2 ul#specials-filter-list a.selected:hover {
     border-left: 2px solid #ddb355;
-    color: #1d1d20
+    color: #1d1d20;
 }
 #specials2 ul#specials-filter-list li a:hover {
     border-left: 2px solid #ddb355;
-    color: #1d1d20
+    color: #1d1d20;
 }
 #specials2 .single-item {
     display: block;
     width: 33.3%;
     padding: 8px;
     float: left;
-    position: relative
+    position: relative;
 }
 #specials2 .single-item a {
     display: block;
     -webkit-transition: none!important;
-    transition: none!important
+    transition: none!important;
 }
 #specials2 ul#specials-filter-list {
-    list-style-type: none
+    list-style-type: none;
 }
 
 /*********
@@ -333,17 +333,17 @@ Smallest Tablet & Mobile
         outline: none;
         text-transform: uppercase;
         -webkit-transition: all .3s;
-        transition: all .3s
+        transition: all .3s;
     }
     #specials2 ul#specials-filter-list a.selected, #specials2 ul#specials-filter-list a.selected:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
     #specials2 ul#specials-filter-list li a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
 }
 
@@ -364,7 +364,7 @@ Small Mobile
     #specials2 .menu-filter li {
         list-style: none;
         display: inline-block;
-        margin: 3px
+        margin: 3px;
     }
     #specials2 .menu-filter li a {
         border-bottom: 2px solid transparent;
@@ -373,11 +373,11 @@ Small Mobile
     #specials2 .menu-filter li.active a, #specials2 .menu-filter li.active a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
     #specials2 .menu-filter li a:hover {
         border-bottom: 2px solid #ddb355;
         border-left: 0;
-        color: #1d1d20
+        color: #1d1d20;
     }
 }
