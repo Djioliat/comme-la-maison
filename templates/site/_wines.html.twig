@@ -1,0 +1,68 @@
+<section id="wines">
+    <div class="container">
+        <!-- Title Area -->
+        <div class="row">
+            <div class="col-lg-12">
+                <img
+                        src="{{ asset('/img/icons/floral-divider-dark.png') }}"
+                        width="110"
+                        height="30"
+                        class="img-responsive center-block"
+                        alt="divider"
+                />
+                <h2>Nos vins</h2>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- /.Title Area -->
+
+        <!-- List -->
+        <div class="row">
+            {% for wine in wines %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="recipe-item">
+                        <a href="#">
+                            <figure class="recipe accent-bg">
+                                <img
+                                        src="{{ img_folder }}/{{ wine.picture }}"
+                                        width="300"
+                                        height="300"
+                                        alt="{{ wine.imageDescription }}"
+                                        class="img-responsive center-block"
+                                />
+                                <figcaption>
+                                    <p class="recipe-description">
+                                        {{ wine.description }}
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <h3 class="recipe-name text-uppercase">{{ wine.nameCuvee }}</h3>
+                        <h5 class="recipe-name text-uppercase">{{ wine.domaineName }}</h5>
+                        {% if wine.bio %}
+                        <span class="badge badge-success">Bio</span>
+                        {% endif %}
+
+                        <div class="d-flex justify-content-center">
+                            <p >Sur place : {{ wine.priceRestaurant }}€</p>
+                            <p>A emporter : {{ wine.priceTakeway }}€</p>
+                        </div>
+                        <p class="mrgn-20-top">
+                            <a href="/#" class="btn ghost-darkblue">
+                                Commander
+                            </a>
+                        </p>
+                    </div>
+                    <!-- /.Recipe 01 -->
+                </div>
+            {% else %}
+                <tr>
+                    <td colspan="8">Pas de vins !</td>
+                </tr>
+            {% endfor %}
+        </div>
+        <!-- /.row -->
+        <!-- /.Recipes List -->
+    </div>
+    <!-- /.container -->
+</section>
