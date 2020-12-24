@@ -34,14 +34,11 @@ TOP BAR CONTENT
         <img class="w3-circle" src="{{ asset('img/logo2.png') }}" style="width:7rem;">
         <h5 class="navTitle">Comme à la maison</h5>
     </a>
-    <a class="w3-bar-item w3-button w3-padding-16" href="#">
+    <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('adminpage') }}">
         <span>Accueil</span>
     </a>
-    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
-        <span>Editer le plat du jour</span>
-    </a>
-    <a class="w3-bar-item w3-button w3-padding-16" href=".#">
-        <span>Editer les menus</span>
+    <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('menu_index') }}">
+        <span>Editer le menu</span>
     </a>
     <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('food_index') }}">
         <span>Editer les plats</span>

@@ -1,9 +1,7 @@
 <section class="w3-container w3-rest">
-    {{ form_start(form) }}
-
     <div class="w3-row-padding">
         <div class="w3-half">
-            <h3 class="title">
+            <h3 class="title w3-margin-top">
                 {{ form_label(form.name, 'Nom du plat') }}
             </h3>
             {{ form_widget(form.name,
@@ -13,7 +11,7 @@
         </div>
         <div class="w3-half">
             <div class="w3-row">
-                <h3 class="title">
+                <h3 class="title w3-margin-top">
                     {{ form_label(form.type, 'Choix du type de plat') }}
                 </h3>
                 {{ form_widget(form.type,
@@ -24,17 +22,17 @@
         </div>
     </div>
     <div class="w3-row">
-        <h3 class="title">
+        <h3 class="title w3-margin-top">
             {{ form_label(form.description, 'Description du plat') }}
         </h3>
         {{ form_widget(form.description,
-            {'attr':{'class':'w3-input w3-margin'}}
+            {'attr':{'class':'w3-input'}}
         ) }}
         {{ form_errors(form.description) }}
     </div>
     <div class="w3-row">
         <div class="w3-half">
-            <h3 class="title">
+            <h3 class="title w3-margin-top">
                 {{ form_label(form.priceRestaurant, 'Prix sur place') }}
             </h3>
             {{ form_widget(form.priceRestaurant,
@@ -43,7 +41,7 @@
             {{ form_errors(form.priceRestaurant) }}
         </div>
         <div class="w3-half">
-            <h3 class="title">
+            <h3 class="title w3-margin-top">
                 {{ form_label(form.priceTakeway, 'Prix à emporter') }}
             </h3>
             {{ form_widget(form.priceTakeway,
@@ -52,8 +50,8 @@
             {{ form_errors(form.priceTakeway) }}
         </div>
     </div>
-    <div class="row">
-        <h3 class="title">
+    <div class="w3-row">
+        <h3 class="title w3-margin-top">
             {{ form_label(form.picture, 'Importez une image') }}
         </h3>
         {{ form_widget(form.picture,
@@ -62,5 +60,4 @@
         {{ form_errors(form.picture) }}
     </div>
     <button class="w3-button w3-deep-purple w3-margin">Enregistrer</button>
-    {{ form_end(form) }}
 </section>
