@@ -4,6 +4,11 @@
 
 {% block body %}
 <div class="container">
+    {% for message in app.flashes('success') %}
+    <div class="flash-info">
+        {{ message }}
+    </div>
+    {% endfor %}
     {% if hasError %}
         <div class="alert alert-danger" style="margin-top: 18rem;">Email ou mot de passe est invalide</div>
     {% endif %} 

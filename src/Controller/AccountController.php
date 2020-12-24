@@ -54,7 +54,8 @@ class AccountController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $password = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($password); 
+            $user->setPassword($password);
+            $user->setRoles(["ROLE_USER"]); 
 
             $manager->persist($user);
             $manager->flush();
