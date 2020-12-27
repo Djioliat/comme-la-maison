@@ -47,6 +47,21 @@ class User implements UserInterface
      */
     public $passwordConfirm;
 
+    /**
+     * @ORM\Column(type="string", length=70, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=70, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $anniversaire;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,5 +138,41 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(?string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getAnniversaire(): ?\DateTimeInterface
+    {
+        return $this->anniversaire;
+    }
+
+    public function setAnniversaire(?\DateTimeInterface $anniversaire): self
+    {
+        $this->anniversaire = $anniversaire;
+
+        return $this;
     }
 }
