@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\AccountType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +40,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * Permet d'afficher le formulaire d'inscription
+     * Formulaire d'inscription
      * 
      * @Route("/register", name="account_register")
      */
@@ -71,4 +72,34 @@ class AccountController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * Modification du profil utilisateur
+     * @Route("/account/profile", name="account_profile")
+     * @return Response
+    */
+    public function profile(Request $request, EntityManagerInterface $manager,UserPasswordEncoderInterface $encoder) {
+        $user = $this->getUser();
+
+        $form = $this->createForm(AccountType::class, $user);
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()) {
+            $password = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "Votre compte a bien été modifié !"
+            );
+        }
+
+        return $this->render('account/profile.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    
 }
