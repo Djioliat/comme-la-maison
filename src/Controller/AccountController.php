@@ -40,7 +40,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * Permet d'afficher le formulaire d'inscription
+     * Formulaire d'inscription
      * 
      * @Route("/register", name="account_register")
      */
@@ -78,16 +78,23 @@ class AccountController extends AbstractController
      * @Route("/account/profile", name="account_profile")
      * @return Response
     */
-    public function profile(Request $request, EntityManagerInterface $manager) {
+    public function profile(Request $request, EntityManagerInterface $manager,UserPasswordEncoderInterface $encoder) {
         $user = $this->getUser();
 
         $form = $this->createForm(AccountType::class, $user);
-
+        
         $form->handleRequest($request);
-
+        
         if($form->isSubmitted() && $form->isValid()) {
+            $password = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
             $manager->persist($user);
             $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "Votre compte a bien été modifié !"
+            );
         }
 
         return $this->render('account/profile.html.twig', [

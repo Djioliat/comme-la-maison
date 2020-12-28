@@ -1,0 +1,10 @@
+.form-login {
+    display: flex;
+    justify-content: center;
+}
+.widget {
+    width: 40rem;
+}
+.btn {
+    margin-left: 15rem;
+}

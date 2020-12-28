@@ -3,13 +3,18 @@
 {% block title %}Modifier profil{% endblock %}
 
 {% block body %}
-
-<div class="container" style="margin-top: 12rem;">
-    <h1>Modification du profil</h1>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-primary">Sauvegarder les Modification</button>
+<link rel="stylesheet" href="{{ asset('css/profil.css') }}">
+<div class="container cont-profil">
+    <h1 class="title-profil">Modification du profil</h1>
+    <div class="form-profil">
+        {{ form_start(form) }}
+        <div class="form-widget">
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Sauvegarder les Modification</button>
+        <div>
+    </div>
     {{ form_end(form) }}
 </div>
+
 
 {% endblock %}

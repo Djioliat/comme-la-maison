@@ -1,0 +1,18 @@
+.form-inscription {
+    display: flex;
+    justify-content: center;
+}
+.cont-inscription {
+    margin-top: 12rem;
+}
+.widget-inscription {
+    width: 40rem;
+}
+.btn {
+    margin-left: 13rem;
+}
+.tile-inscription {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8rem;
+}
