@@ -35,7 +35,8 @@ class AccountController extends AbstractController
      * 
      * @Route("/logout", name="account_logout")
      */
-    public function logout(){
+    public function logout()
+    {
         // ....rien
     }
 
@@ -44,19 +45,20 @@ class AccountController extends AbstractController
      * 
      * @Route("/register", name="account_register")
      */
-    public function register(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
-        
-        
+    public function register(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    {
+
+
         $user = new User();
 
         $form = $this->createForm(RegistrationType::class, $user);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-            $user->setRoles(["ROLE_USER"]); 
+            $user->setRoles(["ROLE_USER"]);
 
             $manager->persist($user);
             $manager->flush();
@@ -65,7 +67,7 @@ class AccountController extends AbstractController
                 'success',
                 "Votre compte a bien été créé, vous pouvez vous connecter !"
             );
-            return $this->redirectToRoute('account_login'); 
+            return $this->redirectToRoute('account_login');
         }
 
         return $this->render('account/registration.html.twig', [
@@ -77,15 +79,16 @@ class AccountController extends AbstractController
      * Modification du profil utilisateur
      * @Route("/account/profile", name="account_profile")
      * @return Response
-    */
-    public function profile(Request $request, EntityManagerInterface $manager,UserPasswordEncoderInterface $encoder) {
+     */
+    public function profile(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    {
         $user = $this->getUser();
 
         $form = $this->createForm(AccountType::class, $user);
-        
+
         $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
             $manager->persist($user);
@@ -101,5 +104,20 @@ class AccountController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-    
+
+    /**
+     * Afficher les utilisateurs dans l'admin
+     * @Route("/admin/user/edit")
+     * @param User $user
+     * @return Response
+     */
+    public function edit(User $user)
+    {
+        $form = $this->createForm(AccountType::class);
+
+        return $this->render('admin/users/edit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView()
+        ]);
+    }
 }
