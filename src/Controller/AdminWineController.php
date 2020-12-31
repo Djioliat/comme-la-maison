@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * @Route("admin/wine")
@@ -19,7 +20,7 @@ class AdminWineController extends AbstractController
     /**
      * @Route("/", name="wine_index", methods={"GET"})
      */
-    public function index(WineRepository $wineRepository): Response
+    public function index(WineRepository $wineRepository, SessionInterface $session): Response
     {
         return $this->render('wine/index.html.twig', [
             'wines' => $wineRepository->findAll(),
@@ -142,4 +143,6 @@ class AdminWineController extends AbstractController
 
         return $this->redirectToRoute('wine_index');
     }
+
+    
 }
