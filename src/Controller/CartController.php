@@ -6,6 +6,8 @@ use App\Service\Cart\CartService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CartController extends AbstractController
 {
@@ -38,5 +40,44 @@ class CartController extends AbstractController
         
         $cartService->remove($id);
         return $this->redirectToRoute("cart_index");
+    }
+    
+    /**
+     * @Route("/success", name="success")
+     */
+    public function success() {
+        
+        return $this->render('/cart/success.html.twig');
+    }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function error() {
+        return $this->render('/cart/error.html.twig');  
+    }
+
+    /**
+     * @Route("/create-checkout-session", name="validation")
+     */
+    public function validation() {
+        \Stripe\Stripe::setApiKey('sk_test_51I55RjISe9AQaCmEogow1E8hx0jaA8ERZVmWThn8DEDrnS1PgXmT9bUHkOFzTpJeUxn1toGQ6qPE4i8ENkfjDxSM00WYrfIdei');
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+              'price_data' => [
+                'currency' => 'eur',
+                'product_data' => [
+                  'name' => 'Commande',
+                ],
+                'unit_amount' => 2000,
+              ],
+              'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => $this->generateUrl('success', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'cancel_url' => $this->generateUrl('error', [], UrlGeneratorInterface::ABSOLUTE_URL),
+          ]); 
+          return new JsonResponse([ 'id' => $session->id ]);
     }
 }

@@ -1,46 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CommandeController!{% endblock %}
+{% block title %}Votre Commande{% endblock %}
 
 {% block body %}
-<link rel="stylesheet" href="{{ asset('css/commande.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/commande.css') }}">
 
-<div class="title">
-    <h1>Vos commande</h1>
-</div>
-{% if items | length > 0 %}
-<table class="table">
-    <thead>
-        <tr>
-            <th>Produit</th>
-            <th>Prix</th>
-            <th>Quantité</th>
-            <th>Total</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}
+
+    <div class="title">
+        <h1>Vos commande</h1>
+    </div>
+    {% if items | length > 0 %}
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ item.product.nameCuvee }}</td>
-                <td>{{ item.product.priceTakeway }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ item.product.priceTakeway * item.quantity }}</td>
-                <td>
-                    <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="bt btn-danger btn-sm">Supp</a>
-                </td>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
             </tr>
-        {% endfor %}
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Total :</td>
-            <td>{{ total }}</td>
-            <td></td>
-        </tr>
-    </tfoot>
-</table>
-{% else %}
-    <p>Vous n'avez pas encore de commande</p>
-{% endif %}
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.product.nameCuvee }}</td>
+                    <td>{{ item.product.priceTakeway }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.priceTakeway * item.quantity }}</td>
+                    <td>
+                        <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="bt btn-danger btn-sm">Supp</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total :</td>
+                <td>{{ total }}</td>
+                <td><button class="btn btn-success" id="btn btn-success">Validé votre paiement</button></td>
+                
+            </tr>
+        </tfoot>
+    </table>
+    {% else %}
+        <p>Vous n'avez pas encore de commande</p>
+    {% endif %}
 {% endblock %}
+    {% block javascripts %}
+        <script type="text/javascript">
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe('pk_test_51I55RjISe9AQaCmES1KkeNVF2XyLeMYso7cmPsxPxKP5jrNDraVI0Msn9p0MbplovmL4prgm0XoPDEK65NGMqGEh00Jkgde3tc');
+        var checkoutButton = document.getElementById('btn btn-success');
+
+        checkoutButton.addEventListener('click', function() {
+            // Create a new Checkout Session using the server-side endpoint you
+            // created in step 3.
+            fetch('/create-checkout-session', {
+            method: 'POST',
+            })
+            .then(function(response) {
+            return response.json();
+            })
+            .then(function(session) {
+            return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function(result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, you should display the localized error message to your
+            // customer using `error.message`.
+            if (result.error) {
+                alert(result.error.message);
+            }
+            })
+            .catch(function(error) {
+            console.error('Error:', error);
+            });
+        });
+        </script>
+    {% endblock %}
+
