@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/inscription.css') }}">
+    <div class="container cont-inscription">
+        <h1 class="tile-inscription">Inscription au restaurant</h1>
+        <div class="form-inscription"
+        {{ form_start(form) }}
+        <div class="widget-inscription">
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">Valider l'inscription</button>
+        {{ form_end(form) }} 
+    </div>
+
+{% endblock %}

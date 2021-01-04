@@ -1,0 +1,17 @@
+.form-profil {
+    display: flex;
+    justify-content: center;
+}
+.form-widget {
+    width: 40rem;
+}
+.btn {
+    margin-left: 10rem;
+}
+.title-profil {
+    display: flex;
+    justify-content: center;
+}
+.cont-profil {
+    margin-top: 12rem;
+}

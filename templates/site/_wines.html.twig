@@ -48,7 +48,7 @@
                             <p>A emporter : {{ wine.priceTakeway }}€</p>
                         </div>
                         <p class="mrgn-20-top">
-                            <a href="/#" class="btn ghost-darkblue">
+                            <a href="{{ path('cart_add', {'id': wine.id}) }}" class="btn ghost-darkblue">
                                 Commander
                             </a>
                         </p>
