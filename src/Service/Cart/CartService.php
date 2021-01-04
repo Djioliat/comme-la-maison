@@ -54,7 +54,7 @@ class CartService {
 
         foreach($this->getFullCart() as $item) {
             
-            $total += $item['product']->getPriceTakeway() * $item['quantity']; 
+            $total += $item['product']->getPriceTakeway() * $item['quantity'] * 100; 
         }
         return $total;
     }

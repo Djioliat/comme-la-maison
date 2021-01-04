@@ -18,7 +18,7 @@ class CartController extends AbstractController
     {
         return $this->render('cart/index.html.twig', [
             'items' => $cartService->getFullCart(),
-            'total' => $cartService->getTotal()
+            'total' => $cartService->getTotal()/100
         ]);
     }
     
@@ -60,7 +60,7 @@ class CartController extends AbstractController
     /**
      * @Route("/create-checkout-session", name="validation")
      */
-    public function validation() {
+    public function validation(CartService $cartService) {
         \Stripe\Stripe::setApiKey('sk_test_51I55RjISe9AQaCmEogow1E8hx0jaA8ERZVmWThn8DEDrnS1PgXmT9bUHkOFzTpJeUxn1toGQ6qPE4i8ENkfjDxSM00WYrfIdei');
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -70,7 +70,7 @@ class CartController extends AbstractController
                 'product_data' => [
                   'name' => 'Commande',
                 ],
-                'unit_amount' => 2000,
+                'unit_amount' => $cartService->getTotal(),
               ],
               'quantity' => 1,
             ]],
