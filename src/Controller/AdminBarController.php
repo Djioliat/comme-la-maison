@@ -69,4 +69,50 @@ class AdminBarController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("admin/bar/{id}/edit", name="bar_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Bar $bar): Response
+    {
+        $form = $this->createForm(BarType::class, $bar);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('picture')->getData();
+//            Générer un nom de fichier lié au vin
+            $fichier = $bar->getName() . '.' . $image->guessExtension();
+//            Copie du fichier dans le dossier upload
+            $image->move(
+                $this->getParameter('images_directory'),
+                $fichier
+            );
+//            Redimensionner l'image
+            $resizedImage = ImageManagerStatic::make($this->getParameter('images_directory') . $fichier);
+//            Fit centre et coupe l'image
+            $resizedImage->fit(750,560);
+//            resize déforme l'image aux proportions demandées
+//            $resizedImage->resize(750,560);
+            $resizedImage->response('jpg',100);
+//            Copie du fichier dans le dossier upload
+            $resizedImage->save($this->getParameter('images_directory') . $fichier);
+
+            $bar->setPicture($fichier);
+            $bar->setImageDescription($bar->getName());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($bar);
+            $entityManager->flush();
+            
+            
+
+            return $this->redirectToRoute('admin_bar');
+        }
+
+        return $this->render('admin_bar/edit.html.twig', [
+            'bar' => $bar,
+            'form' => $form->createView(),
+        ]);
+    }
+
 }

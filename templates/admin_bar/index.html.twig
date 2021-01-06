@@ -22,7 +22,7 @@
                 <p class="w3-half w3-padding-small">Prix sur place : {{ bar.price }}€</p>
             </div>
             <div class="w3-row">
-                <a href="#" class="w3-button w3-deep-purple w3-half">Modifier</a>
+                <a href="{{ path('bar_edit', {'id' : bar.id}) }}" class="w3-button w3-deep-purple w3-half">Modifier</a>
                 
             </div>
         </div>
