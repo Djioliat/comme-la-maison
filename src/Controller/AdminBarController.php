@@ -115,4 +115,20 @@ class AdminBarController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("admin/bar/{id}", name="bar_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Bar $bar): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$bar->getId(), $request->request->get('_token'))) {
+//            Supprimer physiquement l'image du dossier upload
+            unlink($this->getParameter('images_directory').'/'.$bar->getPicture());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($bar);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_bar');
+    }
+
 }
