@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Ajouter une boisson {% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/wine-edit.css') }}">
+    <h1 class="title mt-5">Ajouter une boisson</h1>
+
+    {{ include('admin_bar/form.html.twig') }}
+<div class="button-edit">
+    <a class="w3-button w3-blue w3-round-large w3-margin" href="#">Retour à la liste</a>
+</div>
+{% endblock %}

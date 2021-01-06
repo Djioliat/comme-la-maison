@@ -1,0 +1,35 @@
+{% extends "admin.html.twig" %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/wine.css') }}">
+<section class="w3-container w3-center">
+        <h2 class="title mt-5">Ajouter une boisson</h1>
+    </section>
+    <div class="w3-container w3-center mt-2 mb-5">
+        <a href="{{ path('bar_new') }}" class="w3-button w3-blue w3-round-large w3-hover-gray">Ajouter un vin</a>
+    </div>
+
+{% for bar in bars %}
+    <section class="w3-container w3-quarter">
+        <div class="win-card w3-card-4 w3-margin">
+            <div class="w3-display-container w3-center">
+                {# img_folder variable d'environement du dossier uploads pour les images #}
+               <img src="{{ img_folder }}/{{ bar.picture }}" alt="{{ bar.imageDescription }}" style="width:100%">
+            </div>
+            <h3 class="title">{{bar.name}}</h3>            
+            <p class="w3-padding">{{ bar.description }}</p>
+            <div class="w3-row">
+                <p class="w3-half w3-padding-small">Prix sur place : {{ bar.price }}€</p>
+            </div>
+            <div class="w3-row">
+                <a href="#" class="w3-button w3-deep-purple w3-half">Modifier</a>
+                
+            </div>
+        </div>
+    </section>
+ {% else %}
+    <tr>
+        <td colspan="8">Pas de boisson enregistrer !</td>
+    </tr>  
+{% endfor %}  
+{% endblock %}
