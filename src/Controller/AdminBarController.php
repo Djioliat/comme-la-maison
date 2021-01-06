@@ -61,11 +61,11 @@ class AdminBarController extends AbstractController
             $entityManager->persist($bar);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_bar/index.html.twig');
+            return $this->redirectToRoute('admin_bar');
         }
 
         return $this->render('admin_bar/new.html.twig', [
-            'bar' => $bar,
+            'bars' => $bar,
             'form' => $form->createView(),
         ]);
     }
