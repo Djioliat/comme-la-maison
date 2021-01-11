@@ -13,20 +13,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th></th>
+                <th class="designation">Produit</th>
+                <th class="designation">Prix</th>
+                <th class="designation">Quantité</th>
+                <th class="designation">Total</th>
             </tr>
         </thead>
         <tbody>
             {% for item in items %}
                 <tr>
-                    <td>{{ item.product.nameCuvee }}</td>
-                    <td>{{ item.product.priceTakeway }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.priceTakeway * item.quantity }}</td> 
+                    <td class="designation">{{ item.product.nameCuvee }}</td>
+                    <td class="designation">{{ item.product.priceTakeway }}</td>
+                    <td class="designation">{{ item.quantity }}</td>
+                    <td class="designation">{{ item.product.priceTakeway * item.quantity }}</td> 
                     <td>
                         <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="bt btn-danger btn-sm">Supp</a>
                     </td>
@@ -36,14 +35,14 @@
         <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total :</td>
-                <td>{{ total }}</td>
+                <td class="text-right-montant">{{ total }}</td>
                 <td><button class="btn btn-success" id="btn btn-success">Validé votre paiement</button></td>
                 
             </tr>
         </tfoot>
     </table>
     {% else %}
-        <p>Vous n'avez pas encore de commande</p>
+        <p class="panier-vide">Vous n'avez pas encore de commande</p>
     {% endif %}
 {% endblock %}
     {% block javascripts %}
