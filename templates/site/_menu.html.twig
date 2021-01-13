@@ -18,7 +18,7 @@
 				<p>
 					Sur place:
 					{{ menu.priceRestaurant }}€ 
-										&emsp; A emporter:
+																																																																																&emsp; A emporter:
 					{{ menu.priceTakeway }}€</p>
 			</div>
 			<hr>
@@ -60,10 +60,12 @@
 							<div class="single-item {{ food.type }}">
 								<div class="menu-list">
 									<div class="menu-box">
-										<div class="menu-list-item">
-											<h5>{{ food.name }}</h5>
-											<span class="dashed-line"></span>
-										</div>
+										<a type="button" data-toggle="modal" href="#plat-menu{{ food.id}}">
+											<div class="menu-list-item">
+												<h5>{{ food.name }}</h5>
+												<span class="dashed-line"></span>
+											</div>
+										</a>
 										<p class="dish-description">
 											{{ food.description }}
 										</p>
@@ -72,7 +74,9 @@
 										{% endif %}
 									</div>
 								</div>
+
 							</div>
+							{{ include('site/_food_modal.html.twig') }}
 						{% endfor %}
 						{% for wine in menu.whineId %}
 							<div class="single-item wine">

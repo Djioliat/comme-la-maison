@@ -15,7 +15,7 @@
 			<div class="row"> {% for food in foods %}
 				<div class="col-md-3 col-sm-6">
 					<div class="recipe-item">
-						<a href="#">
+						<a type="button" data-toggle="modal" href="#plat{{ food.id }}">
 							<figure class="recipe accent-bg">
 								<img src="{{ img_folder }}/{{ food.picture }}" width="300" height="300" alt="{{ food.imageDescription }}" class="img-responsive center-block"/>
 								<figcaption>
@@ -35,14 +35,36 @@
 							<p>A emporter :
 								{{ food.priceTakeway }}€</p>
 						</div>
-						<p class="mrgn-20-top">
-							<a href="/#" class="btn ghost-darkblue">
-								Commander
-							</a>
-						</p>
+						<a href="{{ path('cart_add', {'id': food.id}) }}" class="btn ghost-darkblue">
+							Commander
+						</a>
 					</div>
 					<!-- /.Recipe 01 -->
 				</div>
+				<div id="plat{{ food.id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h5 class="modal-title" id="exampleModalLabel">{{ food.name }}</h5>
+							</div>
+							<div class="modal-body text-justify">
+								<p>{{ food.description }}</p>
+							</div>
+							<div class="modal-footer">
+								<p class="mrgn-20-top">
+									<a href="{{ path('cart_add', {'id': food.id}) }}" class="btn ghost-darkblue">
+										Commander
+									</a>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
 			{% else %}
 				<tr>
 					<td colspan="8">Pas de plats !</td>
