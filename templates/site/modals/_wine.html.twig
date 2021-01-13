@@ -1,0 +1,24 @@
+<div id="wine-menu{{ wine.id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h5 class="modal-title" id="exampleModalLabel">{{ wine.domaineName }}</h5>
+			</div>
+			<div class="modal-body">
+				<img src="{{ img_folder }}/{{ wine.picture }}" width="300" height="300" alt="{{ wine.imageDescription }}" class="img-responsive center-block"/>
+
+			</div>
+			<div class="modal-footer">
+				<p class="mrgn-20-top">
+					<a type="button" data-dismiss="modal" aria-label="Close" class="btn ghost-darkblue">
+						Fermer
+					</a>
+				</p>
+			</div>
+
+		</div>
+	</div>
+</div>
