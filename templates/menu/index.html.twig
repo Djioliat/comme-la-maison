@@ -6,18 +6,16 @@
     <section class="w3-container w3-center">
         <h1>Menu</h1>
     </section>
-    <a href="{{ path('menu_new') }}" class="btn btn-danger w3-right w3-margin-right"
-       style="width:15%;">Ajouter un menu</a>
 
     <section class="w3-container">
         {% for menu in menus %}
-            <section class="w3-container w3-quarter ">
-                <div class="w3-card-4 w3-margin">
-                    {{ include('menu/show.html.twig') }}
+            <section class="w3-container">
+                <div class="w3-row w3-center w3-padding-16">
+                    <a href="{{ path('menu_edit', {'id': menu.id}) }}"
+                       class="w3-button w3-deep-purple w3-center">Modifier le menu</a>
                 </div>
+                    {{ include('menu/show.html.twig') }}
                 <div class="w3-row">
-                    <a href="{{ path('menu_edit', {'id': food.id}) }}"
-                       class="w3-button w3-deep-purple w3-half">Modifier</a>
                     {{ include('menu/_delete_form.html.twig') }}
                 </div>
             </section>

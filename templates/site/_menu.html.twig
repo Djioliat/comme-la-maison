@@ -1,124 +1,107 @@
-<section id="menu">
-    <div class="container">
-        <!-- Title Area -->
-        <div class="row text-center">
-            <div class="col-md-10 col-md-offset-1">
-                <img
-                        src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                        width="110"
-                        height="30"
-                        class="img-responsive center-block"
-                        alt="divider"
-                />
-                <h2>Notre menu</h2>
-            </div>
-        </div>
-        <!-- /.row -->
-        <!-- /.Title Area -->
-
-        <!-- Menu Area with Filter and Gallery -->
-        <div class="row">
-            <div class="col-sm-3 col-md-2">
-                <div id="menu-filter" class="clearfix">
-                    <ul
-                            id="menu-filter-list"
-                            class="option-set clearfix"
-                            data-option-key="filter"
-                    >
-                        <li>
-                            <a href="#filter" data-option-value="*" class="selected">show all</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".starter-dishes">Starters</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".salad-dishes">Salads</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".main-dishes">Main Courses</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".dessert-dishes">Desserts</a>
-                        </li>
-                    </ul>
+{% for menu in menus %}
+    <section id="menu">
+        <div class="container">
+            <!-- Title Area -->
+            <div class="row text-center">
+                <div class="col-md-10 col-md-offset-1">
+                    <img
+                            src="{{ asset('img/icons/floral-divider-dark.png') }}"
+                            width="110"
+                            height="30"
+                            class="img-responsive center-block"
+                            alt="divider"
+                    />
+                    <h2>{{ menu.name }}</h2>
                 </div>
             </div>
-            <!-- #options -->
-            <div class="col-sm-9 col-md-10">
-                <div
-                        id="menu-wrapper"
-                        class="clearfix"
-                >
-                    <!-- Starters --->
-                    <div
-                            class="single-item starter-dishes"
-                    >
-                        <div class="menu-list">
-                            <!-- Starter Menu Item 01 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Soup of the day</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 01 -->
+            <!-- /.row -->
+            <!-- /.Title Area -->
 
-                            <!-- Starter Menu Item 02 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>French Onion Soup</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 02 -->
-
-                            <!-- Starter Menu Item 03 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Mediterranean Fish Soup</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                    <span class="label label-special">En promotion</span>
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 03 -->
-
-                            <!-- Starter Menu Item 04 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Baked Brie in Filo</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 04 -->
-                        </div>
+            <p>{{ menu.description }}</p>
+            <div class="d-flex justify-content-around menu-list-item">
+                <p class="price"> Sur place: {{ menu.priceRestaurant }}€</p>
+            </div>
+            <div class="d-flex justify-content-around menu-list-item">
+                <p class="price">A emporter: {{ menu.priceTakeway }}€</p>
+            </div>
+            <!-- Menu Area with Filter and Gallery -->
+            <div class="row">
+                <div class="col-sm-3 col-md-2">
+                    <div id="menu-filter" class="clearfix">
+                        <ul id="menu-filter-list" class="option-set clearfix" data-option-key="filter">
+                            <li>
+                                <a href="#filter" data-option-value="*" class="selected">Tous</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".entree">Entrée</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".vegetarien">Végétarien</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".plat">plat</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".dessert">Dessert</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".fromage">Fromage</a>
+                            </li>
+                            <li>
+                                <a href="#filter" data-option-value=".wine">Vin</a>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- /.Starters --->
+                </div>
+                <!-- #options -->
+                <div class="col-sm-9 col-md-10">
+                    <div id="menu-wrapper" class="clearfix">
+                        <!-- Menu Item -->
+                        {% for food in menu.foods %}
+                            <div class="single-item {{ food.type }}">
+                                <div class="menu-list">
+                                    <div class="menu-box">
+                                        <div class="menu-list-item">
+                                            <h5>{{ food.name }}</h5>
+                                            <span class="dashed-line"></span>
+                                        </div>
+                                        <p class="dish-description">
+                                            {{ food.description }}
+                                        </p>
+                                        {# {% if food.promo == true %} #}
+                                        {# <span class="label label-special">En promotion</span> #}
+                                        {# {% endif %} #}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% for wine in menu.whineId %}
+                            <div class="single-item vin">
+                                <div class="menu-list">
+                                    <div class="menu-box">
+                                        <div class="menu-list-item">
+                                            <h5>{{ wine.nameCuvee }}</h5>
+                                            <span class="dashed-line"></span>
+                                        </div>
+                                        <p class="dish-description">
+                                            {{ wine.description }}
+                                        </p>
+                                        {% if wine.bio %}
+                                            <span class="badge badge-success"
+                                                  style="background-color: #3c763d;">Bio</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
 
+                        <!-- /.Starter Menu Item 01 -->
+                    </div>
                 </div>
             </div>
+            <!-- Menu Area with Filter and Gallery -->
+            <!-- /.row -->
         </div>
-        <!-- Menu Area with Filter and Gallery -->
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
-</section>
+        <!-- /.container -->
+    </section>
+{% endfor %}

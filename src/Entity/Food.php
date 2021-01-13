@@ -53,6 +53,11 @@ class Food
      */
     private $imageDescription;
 
+    /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    private $promotion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,4 +146,16 @@ class Food
 
         return $this;
     }
+
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    public function setPromotion($promotion): void
+    {
+        $this->promotion = $promotion;
+    }
+
+
 }
