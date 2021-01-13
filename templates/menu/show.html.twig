@@ -1,120 +1,101 @@
 {% block body %}
-    <section id="menu">
-        <!-- Title Area -->
-        <div class="text-center align-content-center mb-2">
-            <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                 width="110"
-                 height="30"
-                 class="img-responsive center-block mb-2 mt-2"
-                 alt="divider"/>
-            <h2>{{ menu.name }}</h2>
-        </div>
-        <div class="d-flex justify-content-around menu-list-item">
-            <p class="price"> Sur place: {{ menu.priceRestaurant }}€</p>
-            <p class="price">A emporter: {{ menu.priceTakeway }}€</p>
-        </div>
-        <div class="container-fluid text-justify mb-2">
-            <p>{{ menu.description }}</p>
-            <div class="text-center align-content-center mb-2">
-                <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                     width="110"
-                     height="30"
-                     class="img-responsive center-block mb-2 mt-2"
-                     alt="divider"/>
-                <h5>Entrée</h5>
-            </div>
-            {% for food in menu.foods %}
-                {% if food.type == "entree" %}
-                    <div class="d-flex flex-wrap align-content-between p-2">
-                        <div class="col">
-                            <h5>{{ food.name }}</h5>
-                            <p>
-                                {{ food.description }}
-                            </p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            <div class="text-center align-content-center mb-2">
-                <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                     width="110"
-                     height="30"
-                     class="img-responsive center-block mb-2 mt-2"
-                     alt="divider"/>
-                <h5>plat</h5>
-            </div>
-            {% for food in menu.foods %}
-                {% if food.type == "plat" %}
-                    <div class="d-flex flex-wrap align-content-between p-2">
-                        <div class="col">
-                            <h5>{{ food.name }}</h5>
-                            <p>
-                                {{ food.description }}
-                            </p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            <div class="text-center align-content-center mb-2">
-                <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                     width="110"
-                     height="30"
-                     class="img-responsive center-block mb-2 mt-2"
-                     alt="divider"/>
-                <h5>Dessert</h5>
-            </div>
-            {% for food in menu.foods %}
-                {% if food.type == "dessert" %}
-                    <div class="d-flex flex-wrap align-content-between p-2">
-                        <div class="col">
-                            <h5>{{ food.name }}</h5>
-                            <p>
-                                {{ food.description }}
-                            </p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            <div class="text-center align-content-center mb-2">
-                <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                     width="110"
-                     height="30"
-                     class="img-responsive center-block mb-2 mt-2"
-                     alt="divider"/>
-                <h5>Fromage</h5>
-            </div>
-            {% for food in menu.foods %}
-                {% if food.type == "fromage" %}
-                    <div class="d-flex flex-wrap align-content-between p-2">
-                        <div class="col">
-                            <h5>{{ food.name }}</h5>
-                            <p>
-                                {{ food.description }}
-                            </p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            <div class="text-center align-content-center mb-2">
-                <img src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                     width="110"
-                     height="30"
-                     class="img-responsive center-block mb-2 mt-2"
-                     alt="divider"/>
-                <h5>Vin</h5>
-            </div>
-            {% for wine in menu.whineId %}
-                <div class="d-flex flex-wrap align-content-between p-2">
-                    <div class="col">
-                        <h5>{{ wine.nameCuvee }}</h5>
-                        <p>
-                            {{ wine.description }}
-                        </p>
-                    </div>
-                </div>
-            {% endfor %}
+	<section
+		id="menu">
+		<!-- Title Area -->
+		<div class="text-center align-content-center mb-2">
+			<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+			<h2>{{ menu.name }}</h2>
+		</div>
+		<div class="d-flex justify-content-around menu-list-item">
+			<p class="price">
+				Sur place:
+				{{ menu.priceRestaurant }}€</p>
+			<p class="price">A emporter:
+				{{ menu.priceTakeway }}€</p>
+		</div>
+		<div class="container-fluid text-justify mb-2">
+			<p>{{ menu.description }}</p>
+			<div class="text-center align-content-center mb-2">
+				<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+				<h5>Entrée</h5>
+			</div>
+			{% for food in menu.foods %}
+				{% if food.type == "entree" %}
+					<div class="d-flex flex-wrap align-content-between p-2">
+						<div class="col">
+							<h5>{{ food.name }}</h5>
+							<p>
+								{{ food.description }}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="text-center align-content-center mb-2">
+				<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+				<h5>plat</h5>
+			</div>
+			{% for food in menu.foods %}
+				{% if food.type == "plat" %}
+					<div class="d-flex flex-wrap align-content-between p-2">
+						<div class="col">
+							<h5>{{ food.name }}</h5>
+							<p>
+								{{ food.description }}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="text-center align-content-center mb-2">
+				<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+				<h5>Dessert</h5>
+			</div>
+			{% for food in menu.foods %}
+				{% if food.type == "dessert" %}
+					<div class="d-flex flex-wrap align-content-between p-2">
+						<div class="col">
+							<h5>{{ food.name }}</h5>
+							<p>
+								{{ food.description }}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="text-center align-content-center mb-2">
+				<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+				<h5>Fromage</h5>
+			</div>
+			{% for food in menu.foods %}
+				{% if food.type == "fromage" %}
+					<div class="d-flex flex-wrap align-content-between p-2">
+						<div class="col">
+							<h5>{{ food.name }}</h5>
+							<p>
+								{{ food.description }}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="text-center align-content-center mb-2">
+				<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block mb-2 mt-2" alt="divider"/>
+				<h5>Vin</h5>
+			</div>
+			{% for wine in menu.whineId %}
+				<div class="d-flex flex-wrap align-content-between p-2">
+					<div class="col">
+						<h5>{{ wine.domaineName }}
+						</h5>
+						<p>
+							{{ wine.description }}
+						</p>
+					</div>
+				</div>
+			{% endfor %}
 
-        </div>
+		</div>
 
-    </section>
+	</section>
 {% endblock %}

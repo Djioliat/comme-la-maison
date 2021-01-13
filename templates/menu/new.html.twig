@@ -1,13 +1,28 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Créer un Menu{% endblock %}
+
+{% block title %}Créer un Menu
+{% endblock %}
 
 {% block body %}
-<section class="w3-container w3-center">
-    <h1>Créer un menu</h1>
-</section>
+	<section class="w3-container w3-center">
+		<h1>Créer un menu</h1>
+	</section>
 
-    {{ include('menu/_form.html.twig') }}
+	{{ include('menu/_form.html.twig') }}
 
-    <a class="w3-button w3-border w3-hover-light-gray w3-xlarge w3-margin-bottom" href="{{ path('menu_index') }}">Retour</a>
+	<a class="w3-button w3-border w3-hover-light-gray w3-xlarge w3-margin-bottom" href="{{ path('menu_index') }}">Retour</a>
+{% endblock %}
+
+{% block stylesheets %}
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script>
+		$('select').select2();
+	</script>
+
 {% endblock %}

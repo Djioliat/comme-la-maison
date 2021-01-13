@@ -1,28 +1,25 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Menu ADMIN{% endblock %}
+{% block title %}Menu ADMIN
+{% endblock %}
 
 {% block body %}
-    <section class="w3-container w3-center">
-        <h1>Menu</h1>
-    </section>
+	<section class="w3-container w3-center">
+		<h1>Menu</h1>
+	</section>
 
-    <section class="w3-container">
-        {% for menu in menus %}
-            <section class="w3-container">
-                <div class="w3-row w3-center w3-padding-16">
-                    <a href="{{ path('menu_edit', {'id': menu.id}) }}"
-                       class="w3-button w3-deep-purple w3-center">Modifier le menu</a>
-                </div>
-                    {{ include('menu/show.html.twig') }}
-                <div class="w3-row">
-                    {{ include('menu/_delete_form.html.twig') }}
-                </div>
-            </section>
-        {% else %}
-            <tr>
-                <td colspan="8">Pas de menu trouvé</td>
-            </tr>
-        {% endfor %}
-    </section>
+	<section class="w3-container">
+		{% for menu in menus %}
+			<section class="w3-container">
+				<div class="w3-row w3-center w3-padding-16">
+					<a href="{{ path('menu_edit', {'id': menu.id}) }}" class="w3-button w3-deep-purple w3-center">Modifier le menu</a>
+				</div>
+				{{ include('menu/show.html.twig') }}
+			</section>
+		{% else %}
+			<tr>
+				<td colspan="8">Pas de menu trouvé</td>
+			</tr>
+		{% endfor %}
+	</section>
 {% endblock %}

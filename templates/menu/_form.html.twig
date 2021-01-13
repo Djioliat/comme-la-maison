@@ -1,65 +1,62 @@
-<section class="w3-container w3-rest">
-    {{ form_start(form) }}
-    <div class="w3-row-padding">
-        <div class="w3-half">
-            <h3 class="title w3-margin-top">
-                {{ form_label(form.name, 'Nom du menu') }}
-            </h3>
-            {{ form_widget(form.name,
+<section class="container w3-rest text-center">
+	{{ form_start(form) }}
+	<div class="w3-row-padding">
+		<h3 class="title w3-margin-top">
+			{{ form_label(form.name, 'Nom du menu') }}
+		</h3>
+		{{ form_widget(form.name,
                 {'attr':{'class':'w3-input w3-center'}}
-            ) }}
-            {{ form_errors(form.name) }}
-        </div>
-        <div class="w3-half">
-            <div class="w3-row">
-                <h3 class="title w3-margin-top">
-                    {{ form_label(form.foods, 'Choisir les plats') }}
-                </h3>
-                {{ form_widget(form.foods,
-                    {'attr':{'class':'w3-select w3-border'}}
-                ) }}
-                {{ form_errors(form.foods) }}
-            </div>
-        </div>
-    </div>
-    <div class="w3-row">
-        <h3 class="title w3-margin-top">
-            {{ form_label(form.description, 'Description du menu') }}
-        </h3>
-        {{ form_widget(form.description,
+		) }}
+		{{ form_errors(form.name) }}
+	</div>
+	<div class="w3-row">
+		<h3 class="title w3-margin-top">
+			{{ form_label(form.description, 'Description du menu') }}
+		</h3>
+		{{ form_widget(form.description,
             {'attr':{'class':'w3-input'}}
-        ) }}
-        {{ form_errors(form.description) }}
-    </div>
-    <div class="w3-row">
-        <div class="w3-half">
-            <h3 class="title w3-margin-top">
-                {{ form_label(form.priceRestaurant, 'Prix sur place') }}
-            </h3>
-            {{ form_widget(form.priceRestaurant,
+		) }}
+		{{ form_errors(form.description) }}
+	</div>
+	<div class="w3-row">
+		<div class="w3-half">
+			<h3 class="title w3-margin-top">
+				{{ form_label(form.priceRestaurant, 'Prix sur place') }}
+			</h3>
+			{{ form_widget(form.priceRestaurant,
                 {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
-            ) }}
-            {{ form_errors(form.priceRestaurant) }}
-        </div>
-        <div class="w3-half">
-            <h3 class="title w3-margin-top">
-                {{ form_label(form.priceTakeway, 'Prix à emporter') }}
-            </h3>
-            {{ form_widget(form.priceTakeway,
+			) }}
+			{{ form_errors(form.priceRestaurant) }}
+		</div>
+		<div class="w3-half">
+			<h3 class="title w3-margin-top">
+				{{ form_label(form.priceTakeway, 'Prix à emporter') }}
+			</h3>
+			{{ form_widget(form.priceTakeway,
                 {'attr':{'class':'w3-input w3-light-gray w3-center w3-border'}}
-            ) }}
-            {{ form_errors(form.priceTakeway) }}
-        </div>
-    </div>
-    <div class="w3-row">
-        <h3 class="title w3-margin-top">
-            {{ form_label(form.whineId, 'Choisir les vins') }}
-        </h3>
-        {{ form_widget(form.whineId,
-            {'attr':{'class':'w3-select w3-border'}}
-        ) }}
-        {{ form_errors(form.whineId) }}
-    </div>
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-    {{ form_end(form) }}
+			) }}
+			{{ form_errors(form.priceTakeway) }}
+		</div>
+	</div>
+	<div class="w3-row">
+		<h3 class="title w3-margin-top">
+			{{ form_label(form.foods, 'Choisir les plats') }}
+		</h3>
+		{{ form_widget(form.foods,
+                    {'attr':{'class':'select'}}
+		) }}
+		{{ form_errors(form.foods) }}
+	</div>
+
+	<div class="w3-row">
+		<h3 class="title w3-margin-top">
+			{{ form_label(form.whineId, 'Choisir les vins') }}
+		</h3>
+		{{ form_widget(form.whineId,
+            {'attr':{'class':'select'}}
+		) }}
+		{{ form_errors(form.whineId) }}
+	</div>
+	<button class="w3-button w3-deep-purple w3-margin">Enregistrer</button>
+	{{ form_end(form) }}
 </section>
