@@ -1,68 +1,83 @@
 <section id="wines">
-    <div class="container">
-        <!-- Title Area -->
-        <div class="row">
-            <div class="col-lg-12">
-                <img
-                        src="{{ asset('/img/icons/floral-divider-dark.png') }}"
-                        width="110"
-                        height="30"
-                        class="img-responsive center-block"
-                        alt="divider"
-                />
-                <h2>Nos vins</h2>
-            </div>
-        </div>
-        <!-- /.row -->
-        <!-- /.Title Area -->
+	<div
+		class="container">
+		<!-- Title Area -->
+		<div class="row">
+			<div class="col-lg-12">
+				<img src="{{ asset('/img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block" alt="divider"/>
+				<h2>Nos vins</h2>
+			</div>
+		</div>
+		<!-- /.row -->
+		<!-- /.Title Area -->
 
-        <!-- List -->
-        <div class="row">
-            {% for wine in wines %}
-                <div class="col-md-3 col-sm-6">
-                    <div class="recipe-item">
-                        <a href="#">
-                            <figure class="recipe accent-bg">
-                                <img
-                                        src="{{ img_folder }}/{{ wine.picture }}"
-                                        width="300"
-                                        height="300"
-                                        alt="{{ wine.imageDescription }}"
-                                        class="img-responsive center-block"
-                                />
-                                <figcaption>
-                                    <p class="recipe-description">
-                                        {{ wine.description }}
-                                    </p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                        <h3 class="recipe-name text-uppercase">{{ wine.nameCuvee }}</h3>
-                        <h5 class="recipe-name text-uppercase">{{ wine.domaineName }}</h5>
-                        {% if wine.bio %}
-                        <span class="badge badge-success" style="background-color: #3c763d;">Bio</span>
-                        {% endif %}
+		<!-- List -->
+			<div class="row"> {% for wine in wines %}
+				<div class="col-md-3 col-sm-6">
+					<div class="recipe-item">
+						<a type="button" data-toggle="modal" href="#wine{{ wine.id }}">
 
-                        <div class="d-flex justify-content-center">
-                            <p >Sur place : {{ wine.priceRestaurant }}€</p>
-                            <p>A emporter : {{ wine.priceTakeway }}€</p>
-                        </div>
-                        <p class="mrgn-20-top">
-                            <a href="{{ path('cart_add', {'id': wine.id}) }}" class="btn ghost-darkblue">
-                                Commander
-                            </a>
-                        </p>
-                    </div>
-                    <!-- /.Recipe 01 -->
-                </div>
-            {% else %}
-                <tr>
-                    <td colspan="8">Pas de vins !</td>
-                </tr>
-            {% endfor %}
-        </div>
-        <!-- /.row -->
-        <!-- /.Recipes List -->
-    </div>
-    <!-- /.container -->
+							<figure class="recipe accent-bg">
+								<img src="{{ img_folder }}/{{ wine.picture }}" width="300" height="300" alt="{{ wine.imageDescription }}" class="img-responsive center-block"/>
+								<figcaption>
+									<p class="recipe-description">
+										{{ wine.description }}
+									</p>
+								</figcaption>
+							</figure>
+						</a>
+						<h3 class="recipe-name text-uppercase">{{ wine.nameCuvee }}</h3>
+						<h5 class="recipe-name text-uppercase">{{ wine.domaineName }}</h5>
+						{% if wine.bio %}
+							<span class="badge badge-success" style="background-color: #3c763d;">Bio</span>
+						{% endif %}
+
+						<div class="d-flex justify-content-center">
+							<p>Sur place :
+								{{ wine.priceRestaurant }}€</p>
+							<p>A emporter :
+								{{ wine.priceTakeway }}€</p>
+						</div>
+						<p class="mrgn-20-top">
+							<a href="{{ path('cart_add', {'id': wine.id}) }}" class="btn ghost-darkblue">
+								Commander
+							</a>
+						</p>
+					</div>
+					<!-- /.Recipe 01 -->
+				</div>
+				<div id="wine{{ wine.id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h5 class="modal-title" id="exampleModalLabel">{{ wine.domaineName }}</h5>
+							</div>
+							<div class="modal-body text-justify">
+								<p>{{ wine.description }}</p>
+							</div>
+							<div class="modal-footer">
+								<p class="mrgn-20-top">
+									<a href="{{ path('cart_add', {'id': wine.id}) }}" class="btn ghost-darkblue">
+										Commander
+									</a>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			{% else %}
+				<tr>
+					<td colspan="8">Pas de vins !</td>
+				</tr>
+			{% endfor %}
+		</div>
+		<!-- /.row -->
+		<!-- /.Recipes List -->
+	</div>
+	<!-- /.container -->
 </section>

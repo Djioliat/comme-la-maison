@@ -42,6 +42,53 @@
 p{
     font-size: 0.8em;
 }
+/* ---------------------------
+8. Restaurant Menu /Home Page/
+-----------------------------*/
+section#menu h3 {
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 2px solid #0a0909;
+    padding-bottom: 5px;
+}
+section#menu .menu-list {
+    margin: 0px 0 0px;
+}
+section#menu .menu-list-item {
+    display: block;
+    clear: both;
+    text-align: left;
+}
+section#menu .menu-list-item h5 {
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: bottom;
+    font-weight: 500;
+    float: left;
+    max-width: 80%;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+section#menu .menu-list-item p.price {
+    color: #dea72d;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: bottom;
+    float: right;
+    padding-top: 8px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+section#menu .dashed-line {
+    border-bottom: 1px dashed #0a0909;
+    height: 30px;
+    overflow: hidden;
+    display: block;
+}
+
 @media screen and (max-width: 900px) {
     #mySidebar {
         min-width: 50vw;
