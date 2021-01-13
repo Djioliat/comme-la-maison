@@ -17,6 +17,8 @@ dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
+# Vscode
+.vscode/
 # OS
 .DS_Store
 ###< IDE ###
