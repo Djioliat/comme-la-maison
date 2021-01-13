@@ -13,14 +13,15 @@
 			<!-- /.Title Area -->
 
 			<p>{{ menu.description }}</p>
-			<div class="d-flex justify-content-around menu-list-item">
-				<p class="price">
-					Sur place:
-					{{ menu.priceRestaurant }}€</p>
-			</div>
-			<div class="d-flex justify-content-around menu-list-item">
-				<p class="price">A emporter:
-					{{ menu.priceTakeway }}€</p>
+			<div class="container clearfix">
+				<div class=" row d-flex flex-row justify-content-around">
+					<p>
+						Sur place:
+						{{ menu.priceRestaurant }}€</p>
+					<p>A emporter:
+						{{ menu.priceTakeway }}€</p>
+				</div>
+
 			</div>
 			<!-- Menu Area with Filter and Gallery -->
 			<div class="row">
@@ -75,7 +76,8 @@
 							</div>
 						{% endfor %}
 						{% for wine in menu.whineId %}
-							<div class="single-item vin">
+							<div class="single-item wine">
+
 								<div class="menu-list">
 									<div class="menu-box">
 										<div class="menu-list-item">
