@@ -19,6 +19,18 @@ class RestaurantRepository extends ServiceEntityRepository
         parent::__construct($registry, Restaurant::class);
     }
 
+    /**
+     * @return Restaurant
+     */
+    public function findOne(): ?Restaurant
+    {
+        return $this->createQueryBuilder('r')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     // /**
     //  * @return Restaurant[] Returns an array of Restaurant objects
     //  */

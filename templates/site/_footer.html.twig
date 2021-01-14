@@ -4,9 +4,9 @@
             <div class="col-sm-4">
                 <h3>Adresse</h3>
                 <p class="lead-sm">
-                    21 rue Constantine <br />
-                    37 000<br />
-                    Tours, FR
+                    {{ coordonnees.adress }} <br />
+                    {{ coordonnees.zipcode }}<br />
+                    {{ coordonnees.city }}
                 </p>
             </div>
             <div class="col-sm-4 hidden-xs">
@@ -23,8 +23,8 @@
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
                     <i class="fa fa-twitter-square" aria-hidden="true"></i>
                     <i class="fa fa-instagram" aria-hidden="true"></i><br />
-                    +33 2 45 47 78 01<br />
-                    comme@alamaison.com
+                    {{ coordonnees.phone }}1<br />
+                    {{ coordonnees.name }}
                 </p>
             </div>
         </div>
