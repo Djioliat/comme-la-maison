@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Restaurant{% endblock %}
+
+{% block body %}
+    <h1>Restaurant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Adresse email</th>
+                <td>{{ restaurant.name }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ restaurant.adress }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ restaurant.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ restaurant.city }}</td>
+            </tr>
+            <tr>
+                <th>Fixe</th>
+                <td>{{ restaurant.phone }}</td>
+            </tr>
+            <tr>
+                <th>Portable</th>
+                <td>{{ restaurant.portable }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('restaurant_index') }}">Retour</a>
+
+    <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+
+    {{ include('restaurant/_delete_form.html.twig') }}
+{% endblock %}

@@ -33,7 +33,8 @@ class FoodType extends AbstractType
                 'required' => false
             ])
             ->add('priceRestaurant', NumberType::class)
-            ->add('priceTakeway', NumberType::class);
+            ->add('priceTakeway', NumberType::class)
+            ->add('promotion');
     }
 
     public function configureOptions(OptionsResolver $resolver)

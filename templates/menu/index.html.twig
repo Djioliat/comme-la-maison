@@ -1,45 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Menu index{% endblock %}
+{% block title %}Menu ADMIN
+{% endblock %}
 
 {% block body %}
-    <h1>Menu index</h1>
+	<section class="w3-container w3-center">
+		<a href="{{ path('menu_new') }}" class="btn ajout w3-bouton w3-bar-item w3-red w3-right" style="width:15%;">Nouveau</a>
+	</section>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>PriceRestaurant</th>
-                <th>PriceTakeway</th>
-                <th>Picture</th>
-                <th>PictureDescription</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for menu in menus %}
-            <tr>
-                <td>{{ menu.id }}</td>
-                <td>{{ menu.name }}</td>
-                <td>{{ menu.description }}</td>
-                <td>{{ menu.priceRestaurant }}</td>
-                <td>{{ menu.priceTakeway }}</td>
-                <td>{{ menu.picture }}</td>
-                <td>{{ menu.pictureDescription }}</td>
-                <td>
-                    <a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
-                    <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('menu_new') }}">Create new</a>
+	<section class="w3-container">
+		{% for menu in menus %}
+			<section class="w3-container">
+				<div class="w3-row w3-center w3-padding-16">
+					<a href="{{ path('menu_edit', {'id': menu.id}) }}" class="w3-button w3-deep-purple w3-center">Modifier le menu
+						{{menu.id}}</a>
+				</div>
+				{{ include('menu/show.html.twig') }}
+				<div class="w3-row">
+					{{ include('menu/_delete_form.html.twig') }}
+				</div>
+			</section>
+		{% else %}
+			<tr>
+				<td colspan="8">Pas de menu trouvé</td>
+			</tr>
+		{% endfor %}
+	</section>
 {% endblock %}

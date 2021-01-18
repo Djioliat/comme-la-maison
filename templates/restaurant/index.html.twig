@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Coordonnées
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+	<h1>Coordonnées du restaurant</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Adresse email</th>
+				<th>Adresse</th>
+				<th>Code postal</th>
+				<th>Ville</th>
+				<th>Fixe</th>
+				<th>Portable</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for restaurant in restaurants %}
+			<div class="w3-center">
+		{{ include('restaurant/_delete_form.html.twig') }}
+	</div>
+				<tr>
+					<td>{{ restaurant.name }}</td>
+					<td>{{ restaurant.adress }}</td>
+					<td>{{ restaurant.zipCode }}</td>
+					<td>{{ restaurant.city }}</td>
+					<td>{{ restaurant.phone }}</td>
+					<td>{{ restaurant.portable }}</td>
+					<td>
+						<a class="w3-button w3-deep-purple"  href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+					</td>
+				</tr>
+				
+			{% else %}
+				<tr>
+					<td colspan="8">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a class="w3-button w3-border w3-hover-light-gray w3-margin-bottom" href="{{ path('restaurant_new') }}">Ajout une nouvelle carte</a>
+	
+
+	</div>
+{% endblock %}

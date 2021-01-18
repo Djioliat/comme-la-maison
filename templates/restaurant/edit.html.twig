@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modifier les coordonnées{% endblock %}
+
+{% block body %}
+<section class="container">
+    <h1>Modifier les coordonnées</h1>
+
+    {{ include('restaurant/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="w3-button w3-border w3-hover-light-gray w3-xlarge w3-margin-bottom" href="{{ path('restaurant_index') }}">Retour</a>
+</section>
+{% endblock %}

@@ -1,124 +1,112 @@
-<section id="menu">
-    <div class="container">
-        <!-- Title Area -->
-        <div class="row text-center">
-            <div class="col-md-10 col-md-offset-1">
-                <img
-                        src="{{ asset('img/icons/floral-divider-dark.png') }}"
-                        width="110"
-                        height="30"
-                        class="img-responsive center-block"
-                        alt="divider"
-                />
-                <h2>Notre menu</h2>
-            </div>
-        </div>
-        <!-- /.row -->
-        <!-- /.Title Area -->
+{% for menu in menus %}
+	<section id="menu">
+		<div
+			class="container">
+			<!-- Title Area -->
+			<div class="row text-center">
+				<div class="col-md-10 col-md-offset-1">
+					<img src="{{ asset('img/icons/floral-divider-dark.png') }}" width="110" height="30" class="img-responsive center-block" alt="divider"/>
+					<h2>{{ menu.name }}</h2>
+				</div>
+			</div>
+			<!-- /.row -->
+			<!-- /.Title Area -->
 
-        <!-- Menu Area with Filter and Gallery -->
-        <div class="row">
-            <div class="col-sm-3 col-md-2">
-                <div id="menu-filter" class="clearfix">
-                    <ul
-                            id="menu-filter-list"
-                            class="option-set clearfix"
-                            data-option-key="filter"
-                    >
-                        <li>
-                            <a href="#filter" data-option-value="*" class="selected">show all</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".starter-dishes">Starters</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".salad-dishes">Salads</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".main-dishes">Main Courses</a>
-                        </li>
-                        <li>
-                            <a href="#filter" data-option-value=".dessert-dishes">Desserts</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- #options -->
-            <div class="col-sm-9 col-md-10">
-                <div
-                        id="menu-wrapper"
-                        class="clearfix"
-                >
-                    <!-- Starters --->
-                    <div
-                            class="single-item starter-dishes"
-                    >
-                        <div class="menu-list">
-                            <!-- Starter Menu Item 01 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Soup of the day</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 01 -->
+			<p>{{ menu.description }}</p>
+			<hr>
+			<div class="row text-center">
+				<p>
+					Sur place:
+					{{ menu.priceRestaurant }}€ 
+																																																																																																														&emsp; A emporter:
+					{{ menu.priceTakeway }}€</p>
+			</div>
+			<hr>
+			<!-- Menu Area with Filter and Gallery -->
+			<div class="row">
+				<div class="col-sm-3 col-md-2">
+					<div id="menu-filter" class="clearfix">
+						<ul id="menu-filter-list" class="option-set clearfix" data-option-key="filter">
+							<li>
+								<a href="#filter" data-option-value="*" class="selected">Tous</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".entree">Entrée</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".vegetarien">Végétarien</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".plat">plat</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".dessert">Dessert</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".fromage">Fromage</a>
+							</li>
+							<li>
+								<a href="#filter" data-option-value=".wine">Vin</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- #options -->
+				<div class="col-sm-9 col-md-10">
+					<div
+						id="menu-wrapper" class="clearfix">
+						<!-- Menu Item -->
+						{% for food in menu.foods %}
+							<div class="single-item {{ food.type }}">
+								<div class="menu-list">
+									<div class="menu-box">
+										<a type="button" data-toggle="modal" href="#plat-menu{{ food.id}}">
+											<div class="menu-list-item">
+												<h5>{{ food.name }}</h5>
+												<span class="dashed-line"></span>
+											</div>
+										</a>
+										<p class="dish-description">
+											{{ food.description }}
+										</p>
+										{% if food.promotion == true %}
+											<span class="label label-special">En promotion</span>
+										{% endif %}
+									</div>
+								</div>
 
-                            <!-- Starter Menu Item 02 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>French Onion Soup</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 02 -->
+							</div>
+							{{ include('site/modals/_food.html.twig') }}
+						{% endfor %}
+						{% for wine in menu.whineId %}
+							<div class="single-item wine">
+								<div class="menu-list">
+									<div class="menu-box">
+										<a type="button" data-toggle="modal" href="#wine-menu{{ wine.id}}">
+											<div class="menu-list-item">
+												<h5>{{ wine.nameCuvee }}</h5>
+												<span class="dashed-line"></span>
+											</div>
+										</a>
+										<p class="dish-description">
+											{{ wine.description }}
+										</p>
+										{% if wine.bio %}
+											<span class="badge badge-success" style="background-color: #3c763d;">Bio</span>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+							{{ include('site/modals/_wine.html.twig') }}
+						{% endfor %}
 
-                            <!-- Starter Menu Item 03 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Mediterranean Fish Soup</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                    <span class="label label-special">En promotion</span>
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 03 -->
-
-                            <!-- Starter Menu Item 04 -->
-                            <div class="menu-box">
-                                <div class="menu-list-item">
-                                    <h5>Baked Brie in Filo</h5>
-                                    <p class="price">$4.50</p>
-                                    <span class="dashed-line"></span>
-                                </div>
-                                <p class="dish-description">
-                                    Integer vel cursus nulla. Etiam non augue convallis,
-                                    bibendum justo vel, ultricies ligula.
-                                </p>
-                            </div>
-                            <!-- /.Starter Menu Item 04 -->
-                        </div>
-                    </div>
-                    <!-- /.Starters --->
-
-                </div>
-            </div>
-        </div>
-        <!-- Menu Area with Filter and Gallery -->
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
-</section>
+						<!-- /.Starter Menu Item 01 -->
+					</div>
+				</div>
+			</div>
+			<!-- Menu Area with Filter and Gallery -->
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+{% endfor %}
