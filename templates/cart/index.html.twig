@@ -4,8 +4,6 @@
 
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/commande.css') }}">
-
-
     <div class="title">
         <h1>Vos commande</h1>
     </div>
@@ -37,7 +35,6 @@
                 <td colspan="3" class="text-right">Total :</td>
                 <td class="text-right-montant">{{ total }}</td>
                 <td><button class="btn btn-success" id="btn btn-success">Validé votre paiement</button></td>
-                
             </tr>
         </tfoot>
     </table>
@@ -45,7 +42,6 @@
         <p class="panier-vide">Vous n'avez pas encore de commande</p>
     {% endif %}
 {% endblock %}
-    <script type="text/javascript" src="file.js"></script>
     {% block javascripts %}
         <script type="text/javascript">
         // Create an instance of the Stripe object with your publishable API key
@@ -59,12 +55,15 @@
             method: 'POST',
             })
             .then(function(response) {
+            
             return response.json();
             })
             .then(function(session) {
+                
             return stripe.redirectToCheckout({ sessionId: session.id });
             })
             .then(function(result) {
+               
             // If `redirectToCheckout` fails due to a browser or network
             // error, you should display the localized error message to your
             // customer using `error.message`.
@@ -73,6 +72,7 @@
             }
             })
             .catch(function(error) {
+               
             console.error('Error:', error);
             });
         });
