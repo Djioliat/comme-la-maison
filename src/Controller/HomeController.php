@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+
+use App\Repository\BarRepository;
 use App\Repository\MenuRepository;
 use App\Repository\WineRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,12 +15,13 @@ class HomeController extends AbstractController {
     /**
      * @Route("/", name="homepage")
      */
-    public function home(FoodRepository $foodRepository, WineRepository $wineRepository, MenuRepository $menuRepository, RestaurantRepository $restaurantRepository) {
+    public function home(FoodRepository $foodRepository, WineRepository $wineRepository, MenuRepository $menuRepository, RestaurantRepository $restaurantRepository, BarRepository $barRepository) {
         return $this->render('home.html.twig', [
             'foods' => $foodRepository->findAll(),
             'wines' => $wineRepository->findAll(),
             'menus' => $menuRepository->findAll(),
-            'coordonnees' => $restaurantRepository->findOne()
+            'coordonnees' => $restaurantRepository->findOne(),
+            'bars' => $barRepository->findAll()
         ]);
     }
     /**

@@ -23,7 +23,7 @@ class CartService {
         }else {
             $panier[$id] = 1;
         }
-
+       
         $this->session->set('panier', $panier);
     }
 
@@ -46,6 +46,7 @@ class CartService {
                 'quantity' => $quantity
             ];
         }
+    
         return $panierWithData;
     }
 

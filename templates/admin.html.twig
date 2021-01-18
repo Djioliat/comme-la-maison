@@ -31,6 +31,7 @@
 				<aside class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-col" id="mySidebar"> <button class=" w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Fermer &times;</button>
 				<!-- sidebar menu start-->
 
+
 				{#    TODO Modifier les liens href #}
 				<a class="w3-bar-item w3-center" href="{{ path('homepage') }}">
 					<img class="w3-circle" src="{{ asset('img/logo2.png') }}" style="width:7rem;">
@@ -48,13 +49,15 @@
 				<a class="w3-bar-item w3-button w3-padding-16" href="{{ path('wine_index') }}">
 					<span>Editer les vins</span>
 				</a>
+        <a class="w3-bar-item w3-button w3-padding-16" href="{{ path('admin_bar') }}">
+        <span>Editer les boissons</span>
+        </a>
 				<a class="w3-bar-item w3-button w3-padding-16" href="{{ path('admin_users_index') }}">
 					<span>Mes clients</span>
 				</a>
 				<a class="w3-bar-item w3-button w3-padding-16" href="{{ path('restaurant_index') }}">
 					<span>Modifier les coordonnées</span>
 				</a>
-
 				{#    TODO Modifier le lien href #}
 				<a class="w3-bar-item w3-button w3-padding-16 w3-deep-purple" href="#">
 					<span>
