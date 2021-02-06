@@ -20,7 +20,6 @@ class BarType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ])
-            ->add('image_description')
             ->add('price')
         ;
     }
