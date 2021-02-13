@@ -11,8 +11,7 @@
 		<!-- /.row -->
 		<!-- /.Title Area -->
 
-		<!-- List -->
-			<div class="row"> {% for wine in wines %}
+		<div class="row"> {% for wine in wines %}
 				<div class="col-md-3 col-sm-6">
 					<div class="recipe-item">
 						<a type="button" data-toggle="modal" href="#wine{{ wine.id }}">
@@ -60,6 +59,7 @@
 							</div>
 							<div class="modal-footer">
 								<p class="mrgn-20-top">
+
 									<a href="{{ path('cart_add', {'id': wine.id}) }}" class="btn ghost-darkblue">
 										Commander
 									</a>
